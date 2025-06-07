@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Home from "./pages/Home/Home";
 function App() {
   return (
     <>
@@ -8,7 +9,7 @@ function App() {
         <Navbar />
         <Routes>
           {/* Define your routes here */}
-          <Route path="/" element={<div>หน้าแรก</div>} />
+          <Route path="/" element={<Home />} />
           <Route path="/executives" element={<div>ทำเนียบผู้บริหาร</div>} />
           <Route path="/districts" element={<div>ข้อมูลอำเภอ</div>} />
           <Route path="/announcements" element={<div>ประชาสัมพันธ์</div>} />

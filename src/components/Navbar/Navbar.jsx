@@ -10,6 +10,7 @@ import {
   FileTextOutlined,
   BookOutlined,
   SafetyOutlined,
+  LoginOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.svg";
@@ -85,6 +86,12 @@ const Navbar = () => {
       icon: <SafetyOutlined />,
       label: "กฎหมายหน้ารู้",
       path: "/laws",
+    },
+    {
+      key: "/login",
+      icon: <LoginOutlined />,
+      label: "เข้าสู่ระบบ",
+      path: "/login",
     },
   ];
 
