@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, Drawer, Button } from "antd";
+import { Menu, Button } from "antd";
 import {
   MenuOutlined,
   HomeOutlined,
@@ -12,10 +12,29 @@ import {
   SafetyOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../../assets/logo.svg";
+import "./Navbar.css"; // Import the external CSS file
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
+
+  // ตรวจสอบขนาดหน้าจอ
+  React.useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 1024; // lg breakpoint
+      setIsMobile(mobile);
+      if (!mobile) {
+        setMobileMenuOpen(false); // ปิดเมนูมือถือเมื่อเปลี่ยนเป็นหน้าจอใหญ่
+      }
+    };
+
+    handleResize(); // เรียกครั้งแรก
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // เมนูรายการ
   const menuItems = [
@@ -74,7 +93,7 @@ const Navbar = () => {
     key: item.key,
     icon: item.icon,
     label: (
-      <Link to={item.path} className="text-white hover:text-blue-200">
+      <Link to={item.path} className="navbar-menu-link">
         {item.label}
       </Link>
     ),
@@ -83,16 +102,17 @@ const Navbar = () => {
   return (
     <>
       {/* Header Bar */}
-      <header className="bg-gradient-to-r from-blue-800 to-blue-900 shadow-lg">
+      <header className="navbar-header">
         {/* Top Bar */}
-        <div className="bg-blue-900 py-2">
+        <div className="navbar-top-bar">
           <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between text-white text-sm">
-              <div className="flex items-center space-x-4">
-                <span>📞 โทร: 053-000-000</span>
-                <span>📧 email@dopacm.go.th</span>
+            <div className="navbar-top-content">
+              <div className="navbar-contact-info">
+                <span className="navbar-contact-icon">📞</span>
+                <span>โทร: 053-112607 , 0553-112617</span>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="navbar-date-info">
+                <span className="navbar-date-icon">📅</span>
                 <span>
                   วันที่:{" "}
                   {new Date().toLocaleDateString("th-TH", {
@@ -107,94 +127,107 @@ const Navbar = () => {
         </div>
 
         {/* Main Header */}
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo และชื่อหน่วยงาน */}
-            <div className="flex items-center space-x-4">
-              <div className="bg-white p-2 rounded-full">
-                <img
-                  src="/api/placeholder/60/60"
-                  alt="Logo"
-                  className="w-12 h-12 object-contain"
+        <div className="container mx-auto navbar-main-content">
+          {/* Mobile Layout */}
+          {isMobile && (
+            <div>
+              <div className="navbar-mobile-header">
+                <div className="navbar-mobile-logo-section">
+                  <div className="navbar-mobile-logo-container">
+                    <div className="navbar-mobile-logo-glow"></div>
+                    <div className="navbar-mobile-logo-bg">
+                      <img
+                        src={logo}
+                        alt="Logo"
+                        className="navbar-mobile-logo"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h1 className="navbar-mobile-title">
+                      ที่ทำการปกครองจังหวัดเชียงใหม่
+                    </h1>
+                  </div>
+                </div>
+                <Button
+                  type="text"
+                  icon={<MenuOutlined />}
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="navbar-mobile-menu-button"
+                  size="large"
                 />
               </div>
-              <div className="text-white">
-                <h1 className="text-xl lg:text-2xl font-bold">
-                  ที่ทำการปกครองจังหวัดเชียงใหม่
-                </h1>
-                <p className="text-blue-200 text-sm lg:text-base">
-                  Department of Provincial Administration Chiang Mai
-                </p>
+
+              {/* Mobile Menu */}
+              {mobileMenuOpen && (
+                <div className="navbar-mobile-menu">
+                  <div className="navbar-mobile-menu-grid">
+                    {menuItems.map((item) => (
+                      <Link
+                        key={item.key}
+                        to={item.path}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`navbar-mobile-menu-item ${
+                          location.pathname === item.path ? "active" : ""
+                        }`}
+                      >
+                        <span className="navbar-mobile-menu-icon">
+                          {item.icon}
+                        </span>
+                        <span className="navbar-mobile-menu-label">
+                          {item.label}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Desktop Layout */}
+          {!isMobile && (
+            <div className="navbar-desktop-container">
+              {/* Logo และชื่อหน่วยงาน - ด้านบน */}
+              <div className="navbar-desktop-logo-section">
+                <Link to="/" className="navbar-desktop-logo-link">
+                  <div className="navbar-desktop-logo-container">
+                    <div className="navbar-desktop-logo-glow"></div>
+                    <div className="navbar-desktop-logo-bg">
+                      <img
+                        src={logo}
+                        alt="Logo"
+                        className="navbar-desktop-logo"
+                      />
+                    </div>
+                  </div>
+                  <div className="navbar-desktop-text-section">
+                    <h1 className="navbar-desktop-title">
+                      ที่ทำการปกครองจังหวัดเชียงใหม่
+                    </h1>
+                    <p className="navbar-desktop-subtitle">
+                      Provincial Administration Office Chiang Mai
+                    </p>
+                  </div>
+                </Link>
+              </div>
+
+              {/* Menu - ด้านล่าง */}
+              <div className="navbar-desktop-menu-section">
+                <div className="navbar-desktop-menu-container">
+                  <Menu
+                    mode="horizontal"
+                    selectedKeys={[location.pathname]}
+                    items={antMenuItems}
+                    className="navbar-menu"
+                    theme="dark"
+                  />
+                </div>
               </div>
             </div>
-
-            {/* Desktop Menu */}
-            <nav className="hidden lg:block">
-              <Menu
-                mode="horizontal"
-                selectedKeys={[location.pathname]}
-                items={antMenuItems}
-                className="bg-transparent border-none"
-                theme="dark"
-              />
-            </nav>
-
-            {/* Mobile Menu Button */}
-            <Button
-              type="text"
-              icon={<MenuOutlined />}
-              onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden text-white border-white hover:bg-blue-700"
-              size="large"
-            />
-          </div>
-        </div>
-
-        {/* Navigation Bar สำหรับหน้าจอใหญ่ */}
-        <div className="hidden lg:block bg-blue-800 border-t border-blue-700">
-          <div className="container mx-auto px-4">
-            <Menu
-              mode="horizontal"
-              selectedKeys={[location.pathname]}
-              items={antMenuItems}
-              className="bg-transparent border-none text-white"
-              theme="dark"
-            />
-          </div>
+          )}
         </div>
       </header>
-
-      {/* Mobile Drawer */}
-      <Drawer
-        title={
-          <div className="text-blue-800">
-            <h3 className="font-bold">เมนูหลัก</h3>
-          </div>
-        }
-        placement="right"
-        onClose={() => setMobileMenuOpen(false)}
-        open={mobileMenuOpen}
-        width={300}
-      >
-        <Menu
-          mode="vertical"
-          selectedKeys={[location.pathname]}
-          items={menuItems.map((item) => ({
-            key: item.key,
-            icon: item.icon,
-            label: (
-              <Link
-                to={item.path}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-gray-700 hover:text-blue-600"
-              >
-                {item.label}
-              </Link>
-            ),
-          }))}
-          className="border-none"
-        />
-      </Drawer>
     </>
   );
 };

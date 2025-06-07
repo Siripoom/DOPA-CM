@@ -1,0 +1,421 @@
+/* Navbar.css - Modern Government Office Styling */
+
+/* Main Header Styles */
+.navbar-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background Elements */
+.navbar-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(16, 185, 129, 0.1) 0%,
+    transparent 50%,
+    rgba(6, 182, 212, 0.1) 100%
+  );
+  z-index: 0;
+}
+
+.navbar-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+  z-index: 10;
+}
+
+/* Top Bar Styles */
+.navbar-top-bar {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 12px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-top-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #cbd5e1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.navbar-contact-info,
+.navbar-date-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-contact-icon {
+  color: #10b981;
+}
+
+.navbar-date-icon {
+  color: #06b6d4;
+}
+
+/* Main Content Styles */
+.navbar-main-content {
+  padding: 32px 16px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Mobile Styles */
+.navbar-mobile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.navbar-mobile-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-mobile-logo-container {
+  position: relative;
+}
+
+.navbar-mobile-logo-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, #10b981, #06b6d4);
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.3;
+}
+
+.navbar-mobile-logo-bg {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-mobile-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.navbar-mobile-title {
+  color: #f1f5f9;
+  font-size: 20px;
+  font-weight: 700;
+
+  color: white;
+
+  background-clip: text;
+}
+
+.navbar-mobile-menu-button {
+  color: #cbd5e1 !important;
+  border-color: #475569 !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-mobile-menu-button:hover {
+  background-color: rgba(51, 65, 85, 0.5) !important;
+  border-color: #10b981 !important;
+}
+
+/* Mobile Menu Styles */
+.navbar-mobile-menu {
+  background: rgba(30, 41, 59, 0.9);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-mobile-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.navbar-mobile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.navbar-mobile-menu-item.active {
+  background: linear-gradient(
+    45deg,
+    rgba(16, 185, 129, 0.2),
+    rgba(6, 182, 212, 0.2)
+  );
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.navbar-mobile-menu-item:not(.active) {
+  color: #cbd5e1;
+}
+
+.navbar-mobile-menu-item:not(.active):hover {
+  background: rgba(51, 65, 85, 0.5);
+  color: #6ee7b7;
+  border-color: #475569;
+}
+
+.navbar-mobile-menu-icon {
+  font-size: 20px;
+}
+
+.navbar-mobile-menu-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Desktop Styles */
+.navbar-desktop-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-desktop-logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.navbar-desktop-logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.navbar-desktop-logo-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.navbar-desktop-logo-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, #10b981, #06b6d4, #3b82f6);
+  border-radius: 50%;
+  filter: blur(24px);
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+}
+
+.navbar-desktop-logo-link:hover .navbar-desktop-logo-glow {
+  opacity: 0.5;
+}
+
+.navbar-desktop-logo-bg {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(203, 213, 225, 0.2);
+  transition: all 0.5s ease;
+}
+
+.navbar-desktop-logo-link:hover .navbar-desktop-logo-bg {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.navbar-desktop-logo {
+  width: 128px;
+  height: 128px;
+  object-fit: contain;
+}
+
+.navbar-desktop-text-section {
+  text-align: center;
+  color: #f1f5f9;
+}
+
+.navbar-desktop-title {
+  font-size: 36px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-bottom: 12px;
+
+  color: white;
+  background-clip: text;
+  transition: all 0.5s ease;
+}
+
+.navbar-desktop-logo-link:hover .navbar-desktop-title {
+  background: linear-gradient(45deg, #6ee7b7, #67e8f9, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-desktop-subtitle {
+  color: #94a3b8;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-desktop-logo-link:hover .navbar-desktop-subtitle {
+  color: #cbd5e1;
+}
+
+/* Desktop Menu Styles */
+.navbar-desktop-menu-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-desktop-menu-container {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 12px 24px;
+  border: 1px solid rgba(71, 85, 105, 0.5);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Ant Design Menu Overrides */
+.navbar-menu.ant-menu-horizontal {
+  border-bottom: none !important;
+  background: transparent !important;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.navbar-menu.ant-menu-horizontal > .ant-menu-item {
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.3s ease !important;
+  margin: 0 4px;
+  border-radius: 8px 8px 0 0;
+}
+
+.navbar-menu.ant-menu-horizontal > .ant-menu-item:hover {
+  border-bottom-color: #10b981 !important;
+  background: linear-gradient(
+    45deg,
+    rgba(16, 185, 129, 0.1),
+    rgba(6, 182, 212, 0.1)
+  ) !important;
+}
+
+.navbar-menu.ant-menu-horizontal > .ant-menu-item-selected {
+  border-bottom-color: #06b6d4 !important;
+  background: linear-gradient(
+    45deg,
+    rgba(16, 185, 129, 0.2),
+    rgba(6, 182, 212, 0.2)
+  ) !important;
+}
+
+.navbar-menu-link {
+  color: #f1f5f9 !important;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar-menu-link:hover {
+  color: #6ee7b7 !important;
+}
+
+/* Responsive Utilities */
+@media (max-width: 1024px) {
+  .navbar-desktop-container {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-mobile-header,
+  .navbar-mobile-menu {
+    display: none;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.navbar-desktop-logo-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbar for Mobile Menu */
+.navbar-mobile-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.navbar-mobile-menu::-webkit-scrollbar-track {
+  background: rgba(51, 65, 85, 0.3);
+  border-radius: 2px;
+}
+
+.navbar-mobile-menu::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #10b981, #06b6d4);
+  border-radius: 2px;
+}
+
+/* Focus States for Accessibility */
+.navbar-menu-link:focus,
+.navbar-mobile-menu-item:focus,
+.navbar-desktop-logo-link:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .navbar-header {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  .navbar-header::before,
+  .navbar-header::after {
+    display: none !important;
+  }
+}
