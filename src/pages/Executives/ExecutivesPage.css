@@ -1,0 +1,377 @@
+/* ExecutivesPage.css */
+
+/* Main Container */
+.executives-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  padding: 40px 20px;
+}
+
+.executives-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.executives-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.executives-main-title {
+  color: rgba(29, 29, 29, 0.9) !important;
+  margin-bottom: 10px !important;
+  font-size: 3em !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.executives-sub-title {
+  color: rgba(29, 29, 29, 0.9) !important;
+  margin-bottom: 30px !important;
+  font-weight: 300 !important;
+}
+
+.executives-title-divider {
+  height: 4px;
+  width: 100px;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Section Titles */
+.section-title {
+  color: rgb(0, 0, 0) !important;
+  text-align: center;
+  margin-bottom: 30px !important;
+}
+
+.section-title-icon {
+  margin-right: 10px;
+  color: #ffd700;
+}
+
+/* Governor Section */
+.governor-section {
+  margin-bottom: 60px;
+}
+
+/* Deputies Section */
+.deputies-section {
+  margin-bottom: 40px;
+}
+
+/* Executive Cards */
+.executive-card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.3s ease;
+  background: white;
+  cursor: pointer;
+}
+
+.executive-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+.governor-card {
+  border: 3px solid #ffd700;
+  position: relative;
+}
+
+.governor-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+  border-radius: 18px;
+  z-index: -1;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.deputy-card {
+  border: 2px solid #e8f4fd;
+}
+
+/* Executive Image */
+.executive-image-container {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.executive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.executive-card:hover .executive-image {
+  transform: scale(1.05);
+}
+
+.governor-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 215, 0, 0.9);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Executive Info */
+.executive-info {
+  padding: 20px;
+}
+
+.executive-name {
+  margin-bottom: 8px !important;
+  color: #1890ff !important;
+  font-size: 1.3em !important;
+}
+
+.executive-position {
+  color: #666 !important;
+  font-size: 14px !important;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.executive-contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-text {
+  font-size: 13px !important;
+  color: #666 !important;
+}
+
+.executive-contact-list {
+  width: 100%;
+}
+
+/* Modal Styles */
+.executive-modal .ant-modal-content {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.executive-modal .ant-tabs-tab {
+  font-size: 16px !important;
+  padding: 12px 20px !important;
+}
+
+.executive-modal .ant-tabs-content-holder {
+  background: #fafafa;
+  border-radius: 0 0 15px 15px;
+}
+
+/* Modal Content */
+.modal-content {
+  padding: 20px;
+}
+
+.modal-header {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.modal-image-container {
+  flex: 0 0 200px;
+}
+
+.modal-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.modal-name {
+  margin-bottom: 10px !important;
+  color: #1890ff !important;
+}
+
+.modal-position {
+  color: #666 !important;
+  margin-bottom: 20px !important;
+  font-weight: normal !important;
+}
+
+.modal-contact-list {
+  width: 100%;
+}
+
+.modal-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-contact-icon {
+  font-size: 16px;
+}
+
+.modal-contact-icon.phone {
+  color: #1890ff;
+}
+
+.modal-contact-icon.email {
+  color: #1890ff;
+}
+
+.modal-contact-icon.calendar {
+  color: #52c41a;
+}
+
+.modal-contact-label {
+  font-weight: 500 !important;
+}
+
+.modal-contact-text {
+  color: #666 !important;
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 20px;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding: 0;
+}
+
+.list-item {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.list-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.list-bullet.education {
+  background-color: #1890ff;
+}
+
+.list-bullet.experience {
+  background-color: #52c41a;
+}
+
+.list-bullet.responsibility {
+  background-color: #fa8c16;
+}
+
+.list-text {
+  color: #333 !important;
+}
+
+/* Tab Icons */
+.tab-icon {
+  margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .executives-main-title {
+    font-size: 2.2em !important;
+  }
+
+  .executives-sub-title {
+    font-size: 1.1em !important;
+  }
+
+  .modal-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .modal-image-container {
+    flex: none;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .modal-info {
+    min-width: auto;
+    text-align: center;
+  }
+
+  .modal-contact-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .executives-page {
+    padding: 20px 10px;
+  }
+
+  .executives-main-title {
+    font-size: 1.8em !important;
+  }
+
+  .executive-image-container {
+    height: 200px;
+  }
+
+  .executive-info {
+    padding: 15px;
+  }
+
+  .tab-content {
+    padding: 15px;
+  }
+}
+
+/* Custom Ant Design Overrides */
+.executives-page .ant-card-body {
+  padding: 0 !important;
+}
+
+.executives-page .ant-divider {
+  margin: 12px 0 !important;
+}
+
+.executives-page .ant-space-vertical {
+  width: 100%;
+}
+
+.executives-page .ant-typography {
+  margin-bottom: 0 !important;
+}

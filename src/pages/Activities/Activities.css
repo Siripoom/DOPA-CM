@@ -1,0 +1,241 @@
+/* Activities.css */
+.activities-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.activities-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  padding: 40px 30px;
+  margin-bottom: 30px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.activities-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.activities-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.activities-title-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.activities-main-icon {
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.activities-main-title {
+  color: white !important;
+  margin-bottom: 8px !important;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.activities-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.add-activity-btn {
+  height: 45px;
+  padding: 0 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.add-activity-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.activities-filter-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  border: none;
+}
+
+.activities-search {
+  width: 100%;
+}
+
+.activities-search .ant-input-group-addon {
+  border: none;
+  background: #722ed1;
+}
+
+.activities-search .ant-btn {
+  border: none;
+  background: #722ed1;
+  color: white;
+  height: 40px;
+}
+
+.activities-search .ant-btn:hover {
+  background: #531dab;
+}
+
+.activities-filter-select,
+.activities-sort-select {
+  width: 100%;
+}
+
+.activities-stats {
+  text-align: right;
+}
+
+.stat-number {
+  color: #722ed1;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.activities-content {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.activities-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+}
+
+.activities-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.activities-empty {
+  padding: 60px 20px;
+}
+
+.activities-empty .ant-empty-description {
+  color: #8c8c8c;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .activities-container {
+    padding: 15px;
+  }
+
+  .activities-header {
+    padding: 30px 20px;
+  }
+
+  .activities-main-title {
+    font-size: 24px;
+  }
+
+  .activities-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .activities-header-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .activities-title-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .activities-main-icon {
+    font-size: 36px;
+  }
+
+  .activities-main-title {
+    font-size: 22px;
+  }
+
+  .activities-subtitle {
+    font-size: 14px;
+  }
+
+  .add-activity-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .activities-stats {
+    text-align: left;
+  }
+
+  .activities-content {
+    padding: 15px;
+  }
+
+  .activities-pagination {
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .activities-container {
+    padding: 10px;
+  }
+
+  .activities-header {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+
+  .activities-main-title {
+    font-size: 20px;
+  }
+
+  .activities-subtitle {
+    font-size: 13px;
+  }
+
+  .activities-filter-card .ant-card-body {
+    padding: 15px;
+  }
+
+  .stat-number {
+    font-size: 14px;
+  }
+}

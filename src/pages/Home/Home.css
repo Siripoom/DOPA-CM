@@ -2,8 +2,7 @@
 
 /* Main Container */
 .home-container {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  color: rgba(29, 29, 29, 0.9) !important;
   min-height: 100vh;
   padding: 24px 0;
 }
