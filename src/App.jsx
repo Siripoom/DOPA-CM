@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import Navbar from "./components/Navbar/Navbar.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          {/* Define your routes here */}
+          <Route path="/" element={<div>หน้าแรก</div>} />
+          <Route path="/executives" element={<div>ทำเนียบผู้บริหาร</div>} />
+          <Route path="/districts" element={<div>ข้อมูลอำเภอ</div>} />
+          <Route path="/announcements" element={<div>ประชาสัมพันธ์</div>} />
+          <Route path="/activities" element={<div>กิจกรรม</div>} />
+          <Route path="/documents" element={<div>หนังสือราชการ</div>} />
+          <Route path="/knowledge" element={<div>สาระและความรู้</div>} />
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
