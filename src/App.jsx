@@ -9,6 +9,7 @@ import Laws from "./pages/Laws/Laws";
 import Knowledge from "./pages/Knowledge/Knowledge";
 import Announcements from "./pages/Announcements/Announcements";
 import Districts from "./pages/Districts/Districts";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/documents" element={<Documents />} />
           <Route path="/knowledge" element={<Knowledge />} />
           <Route path="/laws" element={<Laws />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>
