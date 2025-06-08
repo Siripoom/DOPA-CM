@@ -8,6 +8,7 @@ import Documents from "./pages/Documents/Documents";
 import Laws from "./pages/Laws/Laws";
 import Knowledge from "./pages/Knowledge/Knowledge";
 import Announcements from "./pages/Announcements/Announcements";
+import Districts from "./pages/Districts/Districts";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           {/* Define your routes here */}
           <Route path="/" element={<Home />} />
           <Route path="/executives" element={<ExecutivesPage />} />
-          <Route path="/districts" element={<div>ข้อมูลอำเภอ</div>} />
+          <Route path="/districts" element={<Districts />} />
           <Route path="/announcements" element={<Announcements />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/documents" element={<Documents />} />
