@@ -1,0 +1,381 @@
+/* AnnouncementCard.css */
+.announcement-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  height: 100%;
+  background: #ffffff;
+}
+
+.announcement-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+}
+
+.announcement-cover {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.announcement-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.announcement-card:hover .announcement-image {
+  transform: scale(1.05);
+}
+
+.announcement-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7) 0%,
+    transparent 40%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.announcement-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.category-badge {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  backdrop-filter: blur(10px);
+}
+
+.category-icon {
+  font-size: 12px;
+}
+
+.priority-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.new-indicator {
+  align-self: flex-end;
+  background: rgba(255, 77, 79, 0.9);
+  padding: 6px 10px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  backdrop-filter: blur(10px);
+}
+
+.new-icon {
+  color: white;
+  font-size: 12px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.new-text {
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.announcement-title {
+  margin-bottom: 12px;
+}
+
+.announcement-title-text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #262626;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.announcement-description {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #595959 !important;
+  margin-bottom: 16px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.announcement-meta {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.announcement-stats {
+  margin-bottom: 12px;
+}
+
+.stat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-icon {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.stat-text {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.announcement-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.author-text {
+  font-size: 12px;
+  color: #8c8c8c;
+  flex: 1;
+}
+
+.publish-time {
+  font-size: 11px;
+  color: #bfbfbf;
+}
+
+.announcement-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.announcement-tag {
+  background: linear-gradient(135deg, #e6f7ff 0%, #bae7ff 100%);
+  color: #0958d9;
+  border: 1px solid #91d5ff;
+  border-radius: 12px;
+  font-size: 10px;
+  padding: 2px 8px;
+  margin: 0;
+}
+
+.announcement-tag-more {
+  background: #f5f5f5;
+  color: #8c8c8c;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  font-size: 10px;
+  padding: 2px 8px;
+  margin: 0;
+}
+
+.urgent-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  animation: urgent-blink 2s infinite;
+}
+
+@keyframes urgent-blink {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 77, 79, 0.7);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 10px rgba(255, 77, 79, 0);
+  }
+}
+
+.urgent-icon {
+  font-size: 12px;
+  animation: shake 1s infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.urgent-text {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.announcement-action-btn {
+  font-size: 12px;
+  color: #1890ff;
+  padding: 0;
+  height: auto;
+}
+
+.announcement-action-btn:hover {
+  color: #096dd9;
+  background: transparent;
+}
+
+/* Category-based styling */
+.announcement-card[data-category="ประกาศ"] {
+  border-left: 4px solid #ff4d4f;
+}
+
+.announcement-card[data-category="แจ้งเตือน"] {
+  border-left: 4px solid #faad14;
+}
+
+.announcement-card[data-category="เชิญชวน"] {
+  border-left: 4px solid #52c41a;
+}
+
+.announcement-card[data-category="ข่าวประชาสัมพันธ์"] {
+  border-left: 4px solid #1890ff;
+}
+
+/* Priority-based effects */
+.announcement-card[data-priority="urgent"] {
+  border: 2px solid #ff4d4f;
+  animation: urgent-glow 3s ease-in-out infinite;
+}
+
+@keyframes urgent-glow {
+  0%,
+  100% {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba(255, 77, 79, 0.3);
+  }
+}
+
+.announcement-card[data-priority="high"] {
+  border-left: 4px solid #faad14;
+}
+
+/* Featured announcement */
+.announcement-card.featured {
+  background: linear-gradient(135deg, #fff7e6 0%, #ffffff 100%);
+  border: 2px solid #faad14;
+}
+
+.announcement-card.featured::before {
+  content: "⭐ แนะนำ";
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  background: #faad14;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 0 0 8px 8px;
+  z-index: 5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .announcement-cover {
+    height: 160px;
+  }
+
+  .announcement-title-text {
+    font-size: 14px;
+  }
+
+  .announcement-description {
+    font-size: 12px !important;
+  }
+
+  .category-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .announcement-overlay {
+    padding: 10px;
+  }
+
+  .announcement-tags {
+    gap: 4px;
+  }
+
+  .announcement-tag,
+  .announcement-tag-more {
+    font-size: 9px;
+    padding: 1px 6px;
+  }
+
+  .urgent-indicator {
+    padding: 4px 8px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .urgent-text {
+    font-size: 10px;
+  }
+}

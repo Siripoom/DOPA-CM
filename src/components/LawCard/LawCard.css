@@ -1,0 +1,288 @@
+/* LawCard.css */
+.law-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+}
+
+.law-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  border-color: #d9d9d9;
+}
+
+.law-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.law-importance {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.importance-badge {
+  margin-right: 0 !important;
+}
+
+.importance-text {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.law-category-tag {
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+}
+
+.law-code {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 8px;
+  border-left: 3px solid #0369a1;
+}
+
+.law-code-text {
+  font-size: 12px !important;
+  color: #0369a1 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  font-family: "Monaco", "Menlo", "Consolas", monospace;
+  font-weight: 600;
+}
+
+.law-title {
+  margin-bottom: 12px;
+}
+
+.law-title-text {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #262626;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.law-description {
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #595959 !important;
+  margin-bottom: 16px !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.law-meta {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.law-meta-row {
+  width: 100%;
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.meta-icon {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.meta-text {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.law-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.law-tag {
+  background: linear-gradient(135deg, #fff7e6 0%, #ffecc7 100%);
+  color: #d46b08;
+  border: 1px solid #ffec8b;
+  border-radius: 12px;
+  font-size: 10px;
+  padding: 2px 8px;
+  margin: 0;
+}
+
+.law-tag-more {
+  background: #f5f5f5;
+  color: #8c8c8c;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  font-size: 10px;
+  padding: 2px 8px;
+  margin: 0;
+}
+
+.law-status {
+  margin-bottom: 8px;
+}
+
+.status-tag {
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.law-action-btn {
+  font-size: 12px;
+  color: #722ed1;
+  padding: 0;
+  height: auto;
+}
+
+.law-action-btn:hover {
+  color: #531dab;
+  background: transparent;
+}
+
+.new-badge,
+.updated-badge {
+  z-index: 10;
+}
+
+.new-badge .ant-badge-count,
+.updated-badge .ant-badge-count {
+  font-size: 10px;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 6px;
+  border-radius: 9px;
+}
+
+/* Importance-based styling */
+.law-card[data-importance="สูง"] {
+  border-left: 4px solid #ff4d4f;
+}
+
+.law-card[data-importance="ปานกลาง"] {
+  border-left: 4px solid #faad14;
+}
+
+.law-card[data-importance="ทั่วไป"] {
+  border-left: 4px solid #52c41a;
+}
+
+/* Category-based hover effects */
+.law-card:hover .law-category-tag[data-category="กฎหมายแพ่ง"] {
+  background: #1890ff;
+  color: white;
+}
+
+.law-card:hover .law-category-tag[data-category="กฎหมายอาญา"] {
+  background: #ff4d4f;
+  color: white;
+}
+
+.law-card:hover .law-category-tag[data-category="กฎหมายรัฐธรรมนูญ"] {
+  background: #722ed1;
+  color: white;
+}
+
+.law-card:hover .law-category-tag[data-category="กฎหมายปกครอง"] {
+  background: #52c41a;
+  color: white;
+}
+
+/* Status indicator */
+.law-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(-45deg, transparent 50%, #f0f0f0 50%);
+  border-radius: 0 12px 0 20px;
+}
+
+.law-card[data-status="ใช้บังคับ"]::before {
+  background: linear-gradient(-45deg, transparent 50%, #52c41a 50%);
+}
+
+.law-card[data-status="ยกเลิก"]::before {
+  background: linear-gradient(-45deg, transparent 50%, #ff4d4f 50%);
+}
+
+.law-card[data-status="ปรับปรุง"]::before {
+  background: linear-gradient(-45deg, transparent 50%, #faad14 50%);
+}
+
+/* Animation for important laws */
+.law-card[data-importance="สูง"] {
+  animation: subtle-glow 3s ease-in-out infinite;
+}
+
+@keyframes subtle-glow {
+  0%,
+  100% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 2px 8px rgba(255, 77, 79, 0.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .law-title-text {
+    font-size: 14px;
+  }
+
+  .law-description {
+    font-size: 12px !important;
+  }
+
+  .law-code-text {
+    font-size: 11px !important;
+  }
+
+  .law-category-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .meta-text {
+    font-size: 11px;
+  }
+
+  .law-tags {
+    gap: 4px;
+  }
+
+  .law-tag,
+  .law-tag-more {
+    font-size: 9px;
+    padding: 1px 6px;
+  }
+}

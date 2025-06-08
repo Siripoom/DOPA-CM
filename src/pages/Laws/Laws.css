@@ -1,0 +1,547 @@
+/* Laws.css */
+.laws-container {
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 20px;
+  position: relative;
+}
+
+.laws-container::before {
+  content: "⚖️";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 60px;
+  opacity: 0.03;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+.laws-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  border-radius: 16px;
+  padding: 40px 30px;
+  margin-bottom: 30px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.laws-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.laws-header::after {
+  content: "📖";
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 60px;
+  opacity: 0.3;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+.laws-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.laws-title-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.laws-main-icon {
+  font-size: 48px;
+  color: rgba(255, 255, 255, 0.9);
+  animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.laws-main-title {
+  color: white !important;
+  margin-bottom: 8px !important;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.laws-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+}
+
+.add-law-btn {
+  height: 45px;
+  padding: 0 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 12px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.add-law-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.laws-tabs-card {
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.laws-tabs-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #722ed1, #531dab, #722ed1);
+  z-index: 1;
+}
+
+.laws-tabs .ant-tabs-nav {
+  margin-bottom: 0;
+  background: #fafafa;
+}
+
+.laws-tabs .ant-tabs-tab {
+  padding: 16px 20px;
+  border-radius: 0;
+  margin: 0;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.laws-tabs .ant-tabs-tab:hover {
+  background: rgba(114, 46, 209, 0.08);
+  color: #722ed1;
+}
+
+.laws-tabs .ant-tabs-tab-active {
+  background: linear-gradient(135deg, #722ed1 0%, #531dab 100%);
+  border-bottom-color: #722ed1;
+}
+
+.laws-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: white;
+  font-weight: 600;
+}
+
+.laws-tabs .ant-tabs-ink-bar {
+  background: linear-gradient(135deg, #722ed1 0%, #531dab 100%);
+  height: 3px;
+}
+
+.tab-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.laws-tabs .ant-tabs-tab-active .tab-item {
+  color: white;
+}
+
+.laws-filter-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 30px;
+  background: #ffffff;
+}
+
+.laws-search {
+  width: 100%;
+}
+
+.laws-search .ant-input-group-addon {
+  border: none;
+  background: #722ed1;
+}
+
+.laws-search .ant-btn {
+  border: none;
+  background: #722ed1;
+  color: white;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.laws-search .ant-btn:hover {
+  background: #531dab;
+  transform: scale(1.05);
+}
+
+.laws-filter-select,
+.laws-sort-select {
+  width: 100%;
+}
+
+.laws-filter-select .ant-select-selector,
+.laws-sort-select .ant-select-selector {
+  border-color: #d9d9d9;
+  transition: all 0.3s ease;
+}
+
+.laws-filter-select:hover .ant-select-selector,
+.laws-sort-select:hover .ant-select-selector {
+  border-color: #722ed1;
+}
+
+.laws-stats {
+  text-align: right;
+}
+
+.stat-number {
+  color: #722ed1;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.stat-text {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+
+.laws-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.laws-content::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, #f9f0ff, #ffffff, #f9f0ff);
+  border-radius: 17px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.laws-content::after {
+  content: "📚";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 24px;
+  opacity: 0.05;
+  animation: float 5s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.laws-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 16px;
+}
+
+.laws-loading .ant-spin .ant-spin-dot {
+  font-size: 20px;
+}
+
+.laws-loading .ant-spin .ant-spin-dot-item {
+  background-color: #722ed1;
+}
+
+.laws-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.laws-pagination .ant-pagination-item-active {
+  background: #722ed1;
+  border-color: #722ed1;
+}
+
+.laws-pagination .ant-pagination-item-active a {
+  color: white;
+}
+
+.laws-pagination
+  .ant-pagination-jump-prev
+  .ant-pagination-item-container
+  .ant-pagination-item-link-icon,
+.laws-pagination
+  .ant-pagination-jump-next
+  .ant-pagination-item-container
+  .ant-pagination-item-link-icon {
+  color: #722ed1;
+}
+
+.laws-empty {
+  padding: 60px 20px;
+}
+
+.laws-empty .ant-empty-description {
+  color: #8c8c8c;
+  font-size: 16px;
+}
+
+/* Grid Enhancement */
+.laws-content .ant-row {
+  position: relative;
+}
+
+.laws-content .ant-col {
+  margin-bottom: 24px;
+}
+
+/* Special Effects for Important Laws */
+.laws-content .ant-col:nth-child(3n + 1) {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.laws-content .ant-col:nth-child(3n + 2) {
+  animation: slide-in-up 0.6s ease-out;
+}
+
+.laws-content .ant-col:nth-child(3n + 3) {
+  animation: slide-in-right 0.6s ease-out;
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .laws-container {
+    padding: 15px;
+  }
+
+  .laws-header {
+    padding: 30px 20px;
+  }
+
+  .laws-main-title {
+    font-size: 24px;
+  }
+
+  .laws-content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .laws-header-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .laws-title-section {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .laws-main-icon {
+    font-size: 36px;
+  }
+
+  .laws-main-title {
+    font-size: 22px;
+  }
+
+  .laws-subtitle {
+    font-size: 14px;
+  }
+
+  .add-law-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .laws-stats {
+    text-align: left;
+  }
+
+  .laws-content {
+    padding: 15px;
+  }
+
+  .laws-pagination {
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+
+  .laws-tabs .ant-tabs-nav-wrap {
+    overflow-x: auto;
+  }
+
+  .laws-tabs .ant-tabs-nav-list {
+    white-space: nowrap;
+  }
+
+  .laws-tabs .ant-tabs-tab {
+    padding: 12px 16px;
+  }
+
+  .tab-item {
+    font-size: 13px;
+    gap: 6px;
+  }
+
+  .laws-container::before {
+    font-size: 40px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .laws-header::after {
+    font-size: 40px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .laws-container {
+    padding: 10px;
+  }
+
+  .laws-header {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+
+  .laws-main-title {
+    font-size: 20px;
+  }
+
+  .laws-subtitle {
+    font-size: 13px;
+  }
+
+  .laws-filter-card .ant-card-body {
+    padding: 15px;
+  }
+
+  .stat-number {
+    font-size: 14px;
+  }
+
+  .stat-text {
+    font-size: 11px;
+  }
+
+  .laws-tabs .ant-tabs-tab {
+    padding: 8px 12px;
+  }
+
+  .tab-item {
+    font-size: 12px;
+    gap: 4px;
+  }
+
+  .laws-header::after {
+    font-size: 30px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .laws-content::after {
+    font-size: 20px;
+    bottom: 10px;
+    right: 10px;
+  }
+}

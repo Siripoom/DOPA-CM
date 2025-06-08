@@ -5,6 +5,9 @@ import Home from "./pages/Home/Home";
 import ExecutivesPage from "./pages/Executives/ExecutivesPage";
 import Activities from "./pages/Activities/Activities";
 import Documents from "./pages/Documents/Documents";
+import Laws from "./pages/Laws/Laws";
+import Knowledge from "./pages/Knowledge/Knowledge";
+import Announcements from "./pages/Announcements/Announcements";
 
 function App() {
   return (
@@ -16,10 +19,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/executives" element={<ExecutivesPage />} />
           <Route path="/districts" element={<div>ข้อมูลอำเภอ</div>} />
-          <Route path="/announcements" element={<div>ประชาสัมพันธ์</div>} />
+          <Route path="/announcements" element={<Announcements />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/documents" element={<Documents />} />
-          <Route path="/knowledge" element={<div>สาระและความรู้</div>} />
+          <Route path="/knowledge" element={<Knowledge />} />
+          <Route path="/laws" element={<Laws />} />
         </Routes>
       </BrowserRouter>
     </>
