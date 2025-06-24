@@ -1,4 +1,5 @@
 /* Home.css */
+@import "tailwindcss";
 
 /* Main Container */
 .home-container {
@@ -8,7 +9,7 @@
 }
 
 .home-content {
-  max-width: 1400px;
+  max-width: 1350px;
   margin: 0 auto;
   padding: 0 24px;
 }

@@ -1,8 +1,9 @@
 /* Navbar.css - Modern Government Office Styling */
+@import "tailwindcss";
 
 /* Main Header Styles */
 .navbar-header {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  background: linear-gradient(135deg, #87ceeb 0%, #00bfff 50%, #87ceeb 100%);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
@@ -200,6 +201,11 @@
   align-items: center;
 }
 
+.navbar-desktop-logo-group {
+  display: flex;
+  gap: 2rem;
+}
+
 .navbar-desktop-logo-section {
   display: flex;
   flex-direction: column;
@@ -279,7 +285,6 @@
 }
 
 .navbar-desktop-subtitle {
-  color: #94a3b8;
   font-size: 18px;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -396,14 +401,6 @@
 .navbar-mobile-menu::-webkit-scrollbar-thumb {
   background: linear-gradient(45deg, #10b981, #06b6d4);
   border-radius: 2px;
-}
-
-/* Focus States for Accessibility */
-.navbar-menu-link:focus,
-.navbar-mobile-menu-item:focus,
-.navbar-desktop-logo-link:focus {
-  outline: 2px solid #10b981;
-  outline-offset: 2px;
 }
 
 /* Print Styles */

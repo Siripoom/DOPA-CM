@@ -17,9 +17,9 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          {/* Define your routes here */}
           <Route path="/" element={<Home />} />
-          <Route path="/executives" element={<ExecutivesPage />} />
+          <Route path="/executives/" element={<ExecutivesPage />} />
+          <Route path="/executives/:section" element={<ExecutivesPage />} />
           <Route path="/districts" element={<Districts />} />
           <Route path="/announcements" element={<Announcements />} />
           <Route path="/activities" element={<Activities />} />

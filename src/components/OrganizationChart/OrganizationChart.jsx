@@ -1,6 +1,7 @@
 // components/OrganizationChart/OrganizationChart.jsx
 import React from "react";
 import { Card, Typography, Row, Col } from "antd";
+import logo from "../../assets/logo.svg";
 import {
   UserOutlined,
   TeamOutlined,
@@ -31,8 +32,14 @@ const OrganizationChart = ({ districtName }) => {
             border: "none",
           }}
         >
-          <div style={{ textAlign: "center" }}>
-            <UserOutlined style={{ fontSize: "24px", marginBottom: "8px" }} />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <img src={logo} width={50} alt="mockup" />
             <div style={{ fontWeight: "bold", fontSize: "16px" }}>นายอำเภอ</div>
             <div style={{ fontSize: "14px", opacity: 0.9 }}>
               หัวหน้าส่วนราชการ

@@ -8,6 +8,7 @@ import {
   Typography,
   Tag,
   Space,
+  Carousel,
   Avatar,
 } from "antd";
 import {
@@ -28,6 +29,7 @@ import {
   CommentOutlined,
 } from "@ant-design/icons";
 import "./Home.css"; // Import CSS file
+import lead from "../../assets/executives/1.jpg";
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -283,6 +285,126 @@ const Home = () => {
 
       <div className="home-content">
         {/* ข่าวประชาสัมพันธ์ */}
+        <Card
+          className="section-card"
+          title={
+            <div className="card-title">
+              <div className="card-icon card-icon-news">
+                <NotificationOutlined
+                  style={{ color: "#ffffff", fontSize: "18px" }}
+                />
+              </div>
+              <span className="card-title-text">ข่าวประชาสัมพันธ์</span>
+            </div>
+          }
+          extra={
+            <Button type="text" className="card-extra-button card-extra-news">
+              ดูทั้งหมด <RightOutlined />
+            </Button>
+          }
+        >
+          <Row gutter={[24, 24]}>
+            {/* First column - Mockup Image */}
+            <Col xs={24} md={8}>
+              <div className="news-mockup-wrapper">
+                <img
+                  src={lead}
+                  alt="Mockup"
+                  className="news-mockup-image"
+                  style={{ width: "100%", borderRadius: "12px" }}
+                />
+                <div className="flex flex-col justify-center my-4 items-center">
+                  <p className="text-xl font-bold">นายชัยณรงค์ นันตาสาย</p>
+                  <p className="text-lg">ปลัดจังหวัดเชียงใหม่</p>
+                </div>
+              </div>
+            </Col>
+
+            {/* Second column - Ant Carousel with mapped news data */}
+            <Col xs={24} md={16}>
+              <Carousel arrows infinite={false} autoplay>
+                {newsData.map((news) => (
+                  <Card
+                    key={news.id}
+                    hoverable
+                    className="news-card"
+                    cover={
+                      <div
+                        className="news-cover"
+                        style={{
+                          backgroundImage: `url(${news.image})`,
+                          height: 400,
+                          // backgroundSize: "cover",
+                          // backgroundPosition: "center",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        {news.isNew && (
+                          <Badge count="ใหม่" className="news-badge" />
+                        )}
+                      </div>
+                    }
+                    bodyStyle={{ padding: "20px" }}
+                  >
+                    <div className="news-title">
+                      <Text strong>{news.title}</Text>
+                    </div>
+
+                    <div className="news-meta">
+                      <Space split={<div className="news-meta-separator" />}>
+                        <div className="news-meta-item">
+                          <ClockCircleOutlined
+                            style={{ fontSize: "12px", color: "#8c8c8c" }}
+                          />
+                          <Text type="secondary" style={{ fontSize: "12px" }}>
+                            {news.date}
+                          </Text>
+                        </div>
+                        <div className="news-meta-item">
+                          <UserOutlined
+                            style={{ fontSize: "12px", color: "#8c8c8c" }}
+                          />
+                          <Text type="secondary" style={{ fontSize: "12px" }}>
+                            {news.author}
+                          </Text>
+                        </div>
+                      </Space>
+                    </div>
+
+                    <div className="news-stats">
+                      <Space>
+                        <div className="news-stat-item">
+                          <EyeOutlined
+                            style={{ fontSize: "14px", color: "#8c8c8c" }}
+                          />
+                          <Text type="secondary" style={{ fontSize: "12px" }}>
+                            {news.views.toLocaleString()}
+                          </Text>
+                        </div>
+                        <div className="news-stat-item">
+                          <HeartOutlined
+                            style={{ fontSize: "14px", color: "#ff4d4f" }}
+                          />
+                          <Text type="secondary" style={{ fontSize: "12px" }}>
+                            {news.likes}
+                          </Text>
+                        </div>
+                      </Space>
+                      <Button
+                        type="link"
+                        size="small"
+                        className="news-read-more"
+                      >
+                        อ่านเพิ่มเติม
+                      </Button>
+                    </div>
+                  </Card>
+                ))}
+              </Carousel>
+            </Col>
+          </Row>
+        </Card>
+
         <Card
           className="section-card"
           title={

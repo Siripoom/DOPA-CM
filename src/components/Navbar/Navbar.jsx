@@ -14,6 +14,7 @@ import {
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.svg";
+import logo2 from "../../assets/logo2.png";
 import "./Navbar.css"; // Import the external CSS file
 
 const Navbar = () => {
@@ -84,7 +85,7 @@ const Navbar = () => {
     {
       key: "/laws",
       icon: <SafetyOutlined />,
-      label: "กฎหมายหน้ารู้",
+      label: "กฎหมายน่ารู้",
       path: "/laws",
     },
     {
@@ -140,20 +141,25 @@ const Navbar = () => {
             <div>
               <div className="navbar-mobile-header">
                 <div className="navbar-mobile-logo-section">
-                  <div className="navbar-mobile-logo-container">
+                  <div className="navbar-mobile-logo-container justify-center items-center">
                     <div className="navbar-mobile-logo-glow"></div>
-                    <div className="navbar-mobile-logo-bg">
+                    <div className="flex gap-2 items-center justify-center ">
                       <img
                         src={logo}
                         alt="Logo"
                         className="navbar-mobile-logo"
                       />
+                      <img
+                        src={logo2}
+                        alt="Logo2"
+                        className="navbar-mobile-logo"
+                      />
                     </div>
-                  </div>
-                  <div>
-                    <h1 className="navbar-mobile-title">
-                      ที่ทำการปกครองจังหวัดเชียงใหม่
-                    </h1>
+                    <div>
+                      <h1 className="navbar-mobile-title">
+                        ที่ทำการปกครองจังหวัดเชียงใหม่
+                      </h1>
+                    </div>
                   </div>
                 </div>
                 <Button
@@ -200,12 +206,21 @@ const Navbar = () => {
                 <Link to="/" className="navbar-desktop-logo-link">
                   <div className="navbar-desktop-logo-container">
                     <div className="navbar-desktop-logo-glow"></div>
-                    <div className="navbar-desktop-logo-bg">
-                      <img
-                        src={logo}
-                        alt="Logo"
-                        className="navbar-desktop-logo"
-                      />
+                    <div className="navbar-desktop-logo-group">
+                      <div className="navbar-desktop-logo-bg">
+                        <img
+                          src={logo}
+                          alt="Logo"
+                          className="navbar-desktop-logo"
+                        />
+                      </div>
+                      <div className="navbar-desktop-logo-bg">
+                        <img
+                          src={logo2}
+                          alt="Logo"
+                          className="navbar-desktop-logo"
+                        />
+                      </div>
                     </div>
                   </div>
                   <div className="navbar-desktop-text-section">

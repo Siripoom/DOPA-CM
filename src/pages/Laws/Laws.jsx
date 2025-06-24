@@ -304,7 +304,7 @@ const Laws = () => {
             <SafetyOutlined className="laws-main-icon" />
             <div>
               <Title level={2} className="laws-main-title">
-                กฎหมายหน้ารู้
+                กฎหมายน่ารู้
               </Title>
               <Text className="laws-subtitle">
                 กฎหมายและระเบียบที่ประชาชนควรทราบ
