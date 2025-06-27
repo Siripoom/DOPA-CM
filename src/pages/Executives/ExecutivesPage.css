@@ -1,4 +1,5 @@
 /* ExecutivesPage.css */
+@import "tailwindcss";
 
 /* Main Container */
 .executives-page {
@@ -9,7 +10,7 @@
 }
 
 .executives-container {
-  max-width: 1200px;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -191,14 +192,14 @@
 /* Executive Image */
 .executive-image-container {
   position: relative;
-  height: 250px;
-  overflow: hidden;
 }
 
 .executive-image {
   width: 100%;
-  height: 100%;
+  height: 280px;
+
   object-fit: cover;
+  object-position: top; /* Add this line */
   transition: transform 0.3s ease;
 }
 

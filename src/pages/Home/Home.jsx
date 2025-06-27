@@ -30,11 +30,55 @@ import {
 } from "@ant-design/icons";
 import "./Home.css"; // Import CSS file
 import lead from "../../assets/executives/1.jpg";
+import landmark1 from "../../assets/landmark/1.png";
+import landmark2 from "../../assets/landmark/2.png";
+import landmark3 from "../../assets/landmark/3.png";
 
 const { Title, Text, Paragraph } = Typography;
 
 const Home = () => {
   // ข้อมูลจำลองสำหรับข่าวประชาสัมพันธ์
+  const landMarksData = [
+    {
+      id: 1,
+      title:
+        "ประกาศผู้ผ่านการสอบข้าราชการปกครองประเภทพิเศษ ตำแหน่งปกครองอำเภอ สำนักงานปกครองจังหวัดเชียงใหม่ เรียงใหม่ที่ 1",
+      date: "2025-05-20",
+      time: "09:48:07",
+      author: "กลุ่มงานการเจ้าหน้าที่",
+      category: "ข่าวประชาสัมพันธ์",
+      isNew: true,
+      image: landmark1,
+      views: 1250,
+      likes: 45,
+    },
+    {
+      id: 2,
+      title:
+        "เชิญชวนเข้าร่วมงานประชุมคณะกรรมการจัดทำแผนพัฒนาท้องถิ่น (แผนพัฒนาท้องถิ่น 4 ปี)",
+      date: "2025-05-18",
+      time: "14:30:15",
+      author: "กลุ่มงานยุทธศาสตร์",
+      category: "ข่าวประชาสัมพันธ์",
+      isNew: true,
+      image: landmark2,
+      views: 890,
+      likes: 32,
+    },
+    {
+      id: 3,
+      title:
+        "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
+      date: "2025-05-15",
+      time: "11:22:33",
+      author: "กลุ่มงานโครงสร้างพื้นฐาน",
+      category: "ข่าวประชาสัมพันธ์",
+      isNew: false,
+      image: landmark3,
+      views: 567,
+      likes: 18,
+    },
+  ];
   const newsData = [
     {
       id: 1,
@@ -66,6 +110,34 @@ const Home = () => {
     },
     {
       id: 3,
+      title:
+        "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
+      date: "2025-05-15",
+      time: "11:22:33",
+      author: "กลุ่มงานโครงสร้างพื้นฐาน",
+      category: "ข่าวประชาสัมพันธ์",
+      isNew: false,
+      image:
+        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
+      views: 567,
+      likes: 18,
+    },
+    {
+      id: 4,
+      title:
+        "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
+      date: "2025-05-15",
+      time: "11:22:33",
+      author: "กลุ่มงานโครงสร้างพื้นฐาน",
+      category: "ข่าวประชาสัมพันธ์",
+      isNew: false,
+      image:
+        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
+      views: 567,
+      likes: 18,
+    },
+    {
+      id: 5,
       title:
         "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
       date: "2025-05-15",
@@ -323,7 +395,7 @@ const Home = () => {
             {/* Second column - Ant Carousel with mapped news data */}
             <Col xs={24} md={16}>
               <Carousel arrows infinite={false} autoplay>
-                {newsData.map((news) => (
+                {landMarksData.map((news) => (
                   <Card
                     key={news.id}
                     hoverable
@@ -423,78 +495,62 @@ const Home = () => {
             </Button>
           }
         >
-          <Row gutter={[24, 24]}>
-            {newsData.map((news, index) => (
-              <Col xs={24} md={8} key={news.id}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Left: Large card */}
+            <div>
+              <Card
+                hoverable
+                className="h-full"
+                cover={
+                  <div
+                    className="h-96 bg-cover bg-center"
+                    style={{ backgroundImage: `url(${newsData[0].image})` }}
+                  >
+                    {newsData[0].isNew && (
+                      <Badge count="ใหม่" className="news-badge" />
+                    )}
+                  </div>
+                }
+                bodyStyle={{ padding: "20px" }}
+              >
+                <Text strong className="block mb-2">
+                  {newsData[0].title}
+                </Text>
+                <div className="text-xs text-gray-500">
+                  {newsData[0].date} | {newsData[0].author}
+                </div>
+              </Card>
+            </div>
+
+            {/* Right: Grid of 4 small cards */}
+            <div className="grid grid-cols-2 grid-rows-2 gap-4">
+              {newsData.slice(1, 5).map((news) => (
                 <Card
+                  key={news.id}
                   hoverable
-                  className="news-card"
+                  className="h-full"
                   cover={
                     <div
-                      className="news-cover"
-                      style={{
-                        backgroundImage: `url(${news.image})`,
-                      }}
+                      className="h-40 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${news.image})` }}
                     >
                       {news.isNew && (
                         <Badge count="ใหม่" className="news-badge" />
                       )}
                     </div>
                   }
-                  bodyStyle={{ padding: "20px" }}
+                  bodyStyle={{ padding: "10px" }}
                 >
-                  <div className="news-title">
-                    <Text strong>{news.title}</Text>
-                  </div>
-
-                  <div className="news-meta">
-                    <Space split={<div className="news-meta-separator" />}>
-                      <div className="news-meta-item">
-                        <ClockCircleOutlined
-                          style={{ fontSize: "12px", color: "#8c8c8c" }}
-                        />
-                        <Text type="secondary" style={{ fontSize: "12px" }}>
-                          {news.date}
-                        </Text>
-                      </div>
-                      <div className="news-meta-item">
-                        <UserOutlined
-                          style={{ fontSize: "12px", color: "#8c8c8c" }}
-                        />
-                        <Text type="secondary" style={{ fontSize: "12px" }}>
-                          {news.author}
-                        </Text>
-                      </div>
-                    </Space>
-                  </div>
-
-                  <div className="news-stats">
-                    <Space>
-                      <div className="news-stat-item">
-                        <EyeOutlined
-                          style={{ fontSize: "14px", color: "#8c8c8c" }}
-                        />
-                        <Text type="secondary" style={{ fontSize: "12px" }}>
-                          {news.views.toLocaleString()}
-                        </Text>
-                      </div>
-                      <div className="news-stat-item">
-                        <HeartOutlined
-                          style={{ fontSize: "14px", color: "#ff4d4f" }}
-                        />
-                        <Text type="secondary" style={{ fontSize: "12px" }}>
-                          {news.likes}
-                        </Text>
-                      </div>
-                    </Space>
-                    <Button type="link" size="small" className="news-read-more">
-                      อ่านเพิ่มเติม
-                    </Button>
+                  <Text strong className="block mb-1">
+                    {news.title}
+                  </Text>
+                  <div className="text-xs text-gray-500">
+                    {news.date} | {news.author}
                   </div>
                 </Card>
-              </Col>
-            ))}
-          </Row>
+              ))}
+            </div>
+          </div>
         </Card>
 
         {/* หนังสือราชการ */}

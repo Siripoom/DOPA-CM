@@ -10,12 +10,14 @@ import Knowledge from "./pages/Knowledge/Knowledge";
 import Announcements from "./pages/Announcements/Announcements";
 import Districts from "./pages/Districts/Districts";
 import Login from "./pages/Login/Login";
+// import ScrollToTop from "./components/shared/ScrollToTop";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Navbar />
+        {/* <ScrollToTop /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/executives/" element={<ExecutivesPage />} />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import {
   Card,
   Row,
@@ -11,6 +12,7 @@ import {
   Divider,
   Avatar,
   Tabs,
+  Breadcrumb,
 } from "antd";
 import {
   UserOutlined,
@@ -18,6 +20,7 @@ import {
   MailOutlined,
   CalendarOutlined,
   BookOutlined,
+  HomeOutlined,
   DoubleRightOutlined,
   TeamOutlined,
   StarOutlined,
@@ -28,19 +31,34 @@ import {
   RightOutlined,
   FileTextOutlined,
 } from "@ant-design/icons";
-import lead from "../../../assets/executives/default/IMG_031224135554.jpg";
-import lead2 from "../../../assets/executives/default/IMG_270423110907.jpg";
-import lead3 from "../../../assets/executives/default/IMG_270423111123.jpg";
-import lead4 from "../../../assets/executives/default/IMG_270423111336.jpg";
+
+const sectionLabels = {
+  hr: "ฝ่ายบริหารงานบุคคล",
+  general: "ฝ่ายบริหารงานทั่วไป",
+  register: "ฝ่ายทะเบียนและบัตร",
+  management: "กลุ่มงานปกครอง",
+  law: "ฝ่ายกฎหมายและอำนวยความ เป็นธรรม",
+  policy: "ฝ่ายนโยบายและยุทธศาสตร์",
+  inspection: "ฝ่ายกำกับและตรวจการทะเบียน",
+  secretary: "ฝ่ายเลขานิการผู้บังคับบัญชา",
+};
+
+import pic from "../../../assets/executives/management/1.png";
+import pic2 from "../../../assets/executives/management/2.png";
+import pic3 from "../../../assets/executives/management/3.png";
+import pic4 from "../../../assets/executives/management/4.png";
+import pic5 from "../../../assets/executives/management/5.png";
+import pic6 from "../../../assets/executives/management/6.png";
+
 const executivesData = {
   governor: {
     id: 1,
-    name: "นายชัยณรงค์",
-    surname: "นันตาสาย",
-    position: "ปลัดจังหวัด",
-    fullPosition: "ปลัดจังหวัดเชียงใหม่",
+    name: "ว่าที่ร้อยตรีสมชาย",
+    surname: "กะหลู่",
+    position: "จ่าจังหวัดเชียงใหม่",
+    fullPosition: "หัวหน้ากลุ่มงาน",
     level: "บริหาร",
-    image: lead,
+    image: pic,
     phone: "053-112607",
     email: "governor@chiangmai.go.th",
     startDate: "1 ตุลาคม 2566",
@@ -63,13 +81,12 @@ const executivesData = {
   deputies: [
     {
       id: 2,
-      name: "ว่าที่ร้อยตรีสมชาย",
-      surname: "กะหลู่",
-      position:
-        "จ่าจังหวัด หัวหน้ากลุ่มงานปกครองและหัวหน้ากลุ่มงานอำนวยความเป็นธรรม",
+      name: "นายสมชาย",
+      surname: "กะหลู",
+      position: "รองปลัดจังหวัด กลุ่มงานบริหารทั่วไป",
       fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานบริหารทั่วไป",
       level: "รอง",
-      image: lead2,
+      image: pic2,
       phone: "053-112608",
       email: "deputy1@chiangmai.go.th",
       startDate: "15 พฤศจิกายน 2566",
@@ -91,12 +108,12 @@ const executivesData = {
     },
     {
       id: 3,
-      name: "นายดนัย",
-      surname: "สุขสกุล",
-      position: "ป้องกันจังหวัด หัวหน้ากลุ่มงานความมั่นคง",
-      fullPosition: "ป้องกันจังหวัด หัวหน้ากลุ่มงานความมั่นคง",
+      name: "นายศดนัย",
+      surname: "สมศักดิ์",
+      position: "รองปลัดจังหวัด กลุ่มงานยุทธศาสตร์",
+      fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานยุทธศาสตร์และแผนงาน",
       level: "รอง",
-      image: lead3,
+      image: pic3,
       phone: "053-112609",
       email: "deputy2@chiangmai.go.th",
       startDate: "1 ธันวาคม 2566",
@@ -118,12 +135,66 @@ const executivesData = {
     },
     {
       id: 4,
-      name: "นางศันสนีย์",
+      name: "นางดิศย์สินี",
       surname: "เอี่ยมโอษฐ์",
-      position: "เสมียนตราจังหวัด หัวหน้ากลุ่มงานการเงินและบัญชี",
+      position: "รองปลัดจังหวัด กลุ่มงานสังคมและความมั่นคง",
       fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานสังคมและความมั่นคง",
       level: "รอง",
-      image: lead4,
+      image: pic4,
+      phone: "053-112610",
+      email: "deputy3@chiangmai.go.th",
+      startDate: "10 มกราคม 2567",
+      education: [
+        "ปริญญาตรี สังคมศาสตร์ มหาวิทยาลัยเชียงใหม่",
+        "ปริญญาโท การจัดการภาครัฐ สถาบันบัณฑิตพัฒนบริหารศาสตร์",
+      ],
+      experience: [
+        "ผู้อำนวยการสำนักงานจังหวัดน่าน (2563-2567)",
+        "รองผู้อำนวยการสำนักงานจังหวัดพะเยา (2560-2563)",
+        "หัวหน้าฝ่ายสังคม สำนักงานจังหวัดเชียงใหม่ (2557-2560)",
+      ],
+      responsibilities: [
+        "งานรักษาความปลอดภัย",
+        "งานป้องกันและบรรเทาสาธารณภัย",
+        "งานส่งเสริมสวัสดิการสังคม",
+        "งานประสานหน่วยงานความมั่นคง",
+      ],
+    },
+    {
+      id: 5,
+      name: "นางดิศย์สินี",
+      surname: "เอี่ยมโอษฐ์",
+      position: "รองปลัดจังหวัด กลุ่มงานสังคมและความมั่นคง",
+      fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานสังคมและความมั่นคง",
+      level: "รอง",
+      image: pic5,
+      phone: "053-112610",
+      email: "deputy3@chiangmai.go.th",
+      startDate: "10 มกราคม 2567",
+      education: [
+        "ปริญญาตรี สังคมศาสตร์ มหาวิทยาลัยเชียงใหม่",
+        "ปริญญาโท การจัดการภาครัฐ สถาบันบัณฑิตพัฒนบริหารศาสตร์",
+      ],
+      experience: [
+        "ผู้อำนวยการสำนักงานจังหวัดน่าน (2563-2567)",
+        "รองผู้อำนวยการสำนักงานจังหวัดพะเยา (2560-2563)",
+        "หัวหน้าฝ่ายสังคม สำนักงานจังหวัดเชียงใหม่ (2557-2560)",
+      ],
+      responsibilities: [
+        "งานรักษาความปลอดภัย",
+        "งานป้องกันและบรรเทาสาธารณภัย",
+        "งานส่งเสริมสวัสดิการสังคม",
+        "งานประสานหน่วยงานความมั่นคง",
+      ],
+    },
+    {
+      id: 6,
+      name: "นางดิศย์สินี",
+      surname: "เอี่ยมโอษฐ์",
+      position: "รองปลัดจังหวัด กลุ่มงานสังคมและความมั่นคง",
+      fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานสังคมและความมั่นคง",
+      level: "รอง",
+      image: pic6,
       phone: "053-112610",
       email: "deputy3@chiangmai.go.th",
       startDate: "10 มกราคม 2567",
@@ -149,6 +220,8 @@ const { Title, Text, Paragraph } = Typography;
 const { TabPane } = Tabs;
 
 const Default = () => {
+  const { section } = useParams();
+
   const [selectedExecutive, setSelectedExecutive] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -218,8 +291,20 @@ const Default = () => {
   return (
     <>
       <div className="executives-header">
+        <Breadcrumb style={{ marginBottom: "16px" }}>
+          <Breadcrumb.Item href="/">
+            <HomeOutlined />
+          </Breadcrumb.Item>
+          <Breadcrumb.Item href="/executives">ผู้บริหาร</Breadcrumb.Item>
+          {section && (
+            <Breadcrumb.Item>
+              {sectionLabels[section] || "ไม่พบข้อมูล"}
+            </Breadcrumb.Item>
+          )}
+        </Breadcrumb>
+
         <Title level={1} className="executives-main-title">
-          ทำเนียบผู้บริหาร
+          {sectionLabels[section] || "กลุ่มงานผู้บริหาร"}
         </Title>
         <Title level={3} className="executives-sub-title">
           ที่ทำการปกครองจังหวัดเชียงใหม่

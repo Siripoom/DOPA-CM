@@ -28,19 +28,16 @@ import {
   RightOutlined,
   FileTextOutlined,
 } from "@ant-design/icons";
-import lead from "../../../assets/executives/default/IMG_031224135554.jpg";
-import lead2 from "../../../assets/executives/default/IMG_270423110907.jpg";
-import lead3 from "../../../assets/executives/default/IMG_270423111123.jpg";
-import lead4 from "../../../assets/executives/default/IMG_270423111336.jpg";
 const executivesData = {
   governor: {
     id: 1,
-    name: "นายชัยณรงค์",
-    surname: "นันตาสาย",
+    name: "นายชิษณุภณ์",
+    surname: "นำลาลาย",
     position: "ปลัดจังหวัด",
     fullPosition: "ปลัดจังหวัดเชียงใหม่",
     level: "บริหาร",
-    image: lead,
+    image:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop&crop=face",
     phone: "053-112607",
     email: "governor@chiangmai.go.th",
     startDate: "1 ตุลาคม 2566",
@@ -63,13 +60,13 @@ const executivesData = {
   deputies: [
     {
       id: 2,
-      name: "ว่าที่ร้อยตรีสมชาย",
-      surname: "กะหลู่",
-      position:
-        "จ่าจังหวัด หัวหน้ากลุ่มงานปกครองและหัวหน้ากลุ่มงานอำนวยความเป็นธรรม",
+      name: "นายสมชาย",
+      surname: "กะหลู",
+      position: "รองปลัดจังหวัด กลุ่มงานบริหารทั่วไป",
       fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานบริหารทั่วไป",
       level: "รอง",
-      image: lead2,
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=face",
       phone: "053-112608",
       email: "deputy1@chiangmai.go.th",
       startDate: "15 พฤศจิกายน 2566",
@@ -91,12 +88,13 @@ const executivesData = {
     },
     {
       id: 3,
-      name: "นายดนัย",
-      surname: "สุขสกุล",
-      position: "ป้องกันจังหวัด หัวหน้ากลุ่มงานความมั่นคง",
-      fullPosition: "ป้องกันจังหวัด หัวหน้ากลุ่มงานความมั่นคง",
+      name: "นายศดนัย",
+      surname: "สมศักดิ์",
+      position: "รองปลัดจังหวัด กลุ่มงานยุทธศาสตร์",
+      fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานยุทธศาสตร์และแผนงาน",
       level: "รอง",
-      image: lead3,
+      image:
+        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=400&fit=crop&crop=face",
       phone: "053-112609",
       email: "deputy2@chiangmai.go.th",
       startDate: "1 ธันวาคม 2566",
@@ -118,12 +116,13 @@ const executivesData = {
     },
     {
       id: 4,
-      name: "นางศันสนีย์",
+      name: "นางดิศย์สินี",
       surname: "เอี่ยมโอษฐ์",
-      position: "เสมียนตราจังหวัด หัวหน้ากลุ่มงานการเงินและบัญชี",
+      position: "รองปลัดจังหวัด กลุ่มงานสังคมและความมั่นคง",
       fullPosition: "รองปลัดจังหวัดเชียงใหม่ กลุ่มงานสังคมและความมั่นคง",
       level: "รอง",
-      image: lead4,
+      image:
+        "https://images.unsplash.com/photo-1494790108755-2616c2a45075?w=300&h=400&fit=crop&crop=face",
       phone: "053-112610",
       email: "deputy3@chiangmai.go.th",
       startDate: "10 มกราคม 2567",
@@ -219,7 +218,7 @@ const Default = () => {
     <>
       <div className="executives-header">
         <Title level={1} className="executives-main-title">
-          ทำเนียบผู้บริหาร
+          ฝ่ายกำกับและตรวจการทะเบียน
         </Title>
         <Title level={3} className="executives-sub-title">
           ที่ทำการปกครองจังหวัดเชียงใหม่

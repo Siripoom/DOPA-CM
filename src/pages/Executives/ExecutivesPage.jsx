@@ -33,7 +33,10 @@ import {
 } from "@ant-design/icons";
 import "./ExecutivesPage.css";
 import Default from "./component/Default";
-import HR from "./component/HR";
+import General from "./component/General";
+import Register from "./component/Register";
+import Management from "./component/Management";
+import Law from "./component/Law";
 
 const { Title, Text, Paragraph } = Typography;
 const { TabPane } = Tabs;
@@ -54,76 +57,68 @@ const ExecutivesPage = () => {
   }, [section]);
 
   let ComponentToRender = <Default />;
-  if (section === "hr") ComponentToRender = <HR />;
+  if (section === "general") ComponentToRender = <General />;
+  if (section === "register") ComponentToRender = <Register />;
+  if (section === "management") ComponentToRender = <Management />;
+  if (section === "law") ComponentToRender = <Law />;
 
   return (
     <div className="executives-page">
-      <div className="executives-container">
-        <Card
-          className="section-card"
-          style={{ padding: "15px" }}
-          title={
-            <div className="card-title">
-              <div className="card-icon card-icon-news">
-                <TeamOutlined style={{ color: "#ffffff", fontSize: "18px" }} />
+      <div className="container mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {/* Sidebar */}
+          <div className="md:col-span-1 deputies-section sticky top-6 self-start">
+            <Card className="shadow-xl">
+              <Title level={2} className="section-title p-2">
+                <TeamOutlined className="section-title-icon" />
+                ขอบเขตงานที่รับผิดชอบ
+              </Title>
+              <div className="deputies-links p-3">
+                <Space direction="vertical">
+                  <Link to="/executives/management">
+                    <DoubleRightOutlined /> กลุ่มงานปกครอง
+                  </Link>
+                  <Link to="/executives/general">
+                    <DoubleRightOutlined /> กลุ่มงานความมั่นคง
+                  </Link>
+                  <Link to="/executives/register">
+                    <DoubleRightOutlined /> กลุ่มงานการเงินและบัญชี
+                  </Link>
+                  <Link to="/executives/law">
+                    <DoubleRightOutlined /> กลุ่มงานอำนวยความเป็นธรรม
+                  </Link>
+                </Space>
               </div>
-              <span className="card-title-text">ผู้บริหาร</span>
-            </div>
-          }
-        >
-          {/* Loading spinner */}
-          {loading ? (
-            <div className="executives-loading">
-              <Spin size="large" />
-              <Text>กำลังโหลดข้อมูล...</Text>
-            </div>
-          ) : (
-            ComponentToRender
-          )}
-
-          <div className="deputies-section">
-            <Title level={2} className="section-title">
-              <TeamOutlined className="section-title-icon" />
-              ขอบเขตงานที่รับผิดชอบ
-            </Title>
-            <div className="deputies-links p-3 flex ">
-              <Space direction="vertical ">
-                <Link to="/executives/hr">
-                  <DoubleRightOutlined />
-                  ฝ่ายบริหารงานบุคคล
-                </Link>
-                <Link to="/executives/general">
-                  <DoubleRightOutlined />
-                  ฝ่ายบริหารงานทั่วไป
-                </Link>
-                <Link to="/executives/register">
-                  <DoubleRightOutlined />
-                  ฝ่ายทะเบียนและบัตร
-                </Link>
-                <Link to="/executives/management">
-                  <DoubleRightOutlined />
-                  ฝ่ายปกครองและพัฒนา
-                </Link>
-                <Link to="/executives/law">
-                  <DoubleRightOutlined />
-                  ฝ่ายกฎหมายและอำนวยความ เป็นธรรม
-                </Link>
-                <Link to="/executives/policy">
-                  <DoubleRightOutlined />
-                  ฝ่ายนโยบายและยุทธศาสตร์
-                </Link>
-                <Link to="/executives/inspection">
-                  <DoubleRightOutlined />
-                  ฝ่ายกำกับและตรวจการทะเบียน
-                </Link>
-                <Link to="/executives/secretary">
-                  <DoubleRightOutlined />
-                  ฝ่ายเลขานิการผู้บังคับบัญชา
-                </Link>
-              </Space>
-            </div>
+            </Card>
           </div>
-        </Card>
+
+          {/* Main Content */}
+          <div className="md:col-span-3 executives-container">
+            <Card
+              className="section-card"
+              style={{ padding: "15px" }}
+              title={
+                <div className="card-title">
+                  <div className="card-icon card-icon-news">
+                    <TeamOutlined
+                      style={{ color: "#ffffff", fontSize: "18px" }}
+                    />
+                  </div>
+                  <span className="card-title-text">ผู้บริหาร</span>
+                </div>
+              }
+            >
+              {loading ? (
+                <div className="executives-loading text-center py-6">
+                  <Spin size="large" />
+                  <Text>กำลังโหลดข้อมูล...</Text>
+                </div>
+              ) : (
+                ComponentToRender
+              )}
+            </Card>
+          </div>
+        </div>
       </div>
     </div>
   );
