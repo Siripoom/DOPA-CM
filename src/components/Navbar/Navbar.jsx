@@ -17,6 +17,8 @@ import logo from "../../assets/logo.svg";
 import logo2 from "../../assets/logo2.png";
 import "./Navbar.css"; // Import the external CSS file
 
+import landmark1 from "../../assets/landmark/1.png";
+
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -110,7 +112,13 @@ const Navbar = () => {
   return (
     <>
       {/* Header Bar */}
-      <header className="navbar-header">
+
+      <header
+        className="navbar-header"
+        style={{
+          backgroundImage: `url(${landmark1})`,
+        }}
+      >
         {/* Top Bar */}
         <div className="navbar-top-bar">
           <div className="container mx-auto px-4">

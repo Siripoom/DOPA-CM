@@ -394,7 +394,14 @@ const Home = () => {
 
             {/* Second column - Ant Carousel with mapped news data */}
             <Col xs={24} md={16}>
-              <Carousel arrows infinite={false} autoplay>
+              <Carousel
+                arrows
+                infinite
+                autoplay
+                prevArrow={<div className="custom-arrow custom-prev">‹</div>}
+                nextArrow={<div className="custom-arrow custom-next">›</div>}
+                autoplaySpeed={5000}
+              >
                 {landMarksData.map((news) => (
                   <Card
                     key={news.id}

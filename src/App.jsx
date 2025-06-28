@@ -17,7 +17,6 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
-        {/* <ScrollToTop /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/executives/" element={<ExecutivesPage />} />

@@ -57,6 +57,108 @@
   font-weight: 600 !important;
 }
 
+/* Carousel Styles */
+/* Make arrow buttons visible and large clickable */
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  opacity: 1 !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff !important;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 24px;
+  z-index: 100;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for better interaction */
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.ant-carousel .slick-prev::after,
+.ant-carousel .slick-next::after {
+  display: none !important;
+}
+
+/* Expand clickable area vertically */
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next {
+  border-radius: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
+}
+
+.ant-carousel .slick-prev::before,
+.ant-carousel .slick-next::before {
+  font-size: 28px;
+  color: white;
+}
+
+/* Optional: place arrows at the side */
+.ant-carousel .slick-prev {
+  width: 80px;
+  height: 90px;
+  left: 0;
+}
+.ant-carousel .slick-next {
+  width: 80px;
+  height: 90px;
+  right: 0;
+}
+
+.custom-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: white;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3)
+  );
+  cursor: pointer;
+  z-index: 100;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.custom-prev {
+  left: 0;
+}
+
+.custom-next {
+  right: 0;
+}
+
+.custom-arrow:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
 /* Card Styles */
 .section-card {
   margin-bottom: 40px;
