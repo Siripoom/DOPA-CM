@@ -21,8 +21,7 @@ const DistrictsPageHeader = ({ onSearch }) => {
         style={{
           position: "absolute",
           inset: 0,
-          background:
-            "linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, transparent 50%, rgba(6, 182, 212, 0.1) 100%)",
+          background: "linear-gradient(135deg, #1890ff 0%, #40a9ff 100%)",
           zIndex: 0,
         }}
       ></div>
@@ -36,7 +35,7 @@ const DistrictsPageHeader = ({ onSearch }) => {
             <BankOutlined
               style={{
                 fontSize: "64px",
-                color: "#10b981",
+                color: "#fff",
                 filter: "drop-shadow(0 0 20px rgba(16, 185, 129, 0.3))",
               }}
             />

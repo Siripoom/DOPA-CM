@@ -13,7 +13,7 @@ import {
   LoginOutlined,
 } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/logo.svg";
+import logo1 from "../../assets/logo.svg";
 import logo2 from "../../assets/logo2.png";
 import "./Navbar.css"; // Import the external CSS file
 
@@ -153,7 +153,7 @@ const Navbar = () => {
                     <div className="navbar-mobile-logo-glow"></div>
                     <div className="flex gap-2 items-center justify-center ">
                       <img
-                        src={logo}
+                        src={logo1}
                         alt="Logo"
                         className="navbar-mobile-logo"
                       />
@@ -217,7 +217,7 @@ const Navbar = () => {
                     <div className="navbar-desktop-logo-group">
                       <div className="navbar-desktop-logo-bg">
                         <img
-                          src={logo}
+                          src={logo1}
                           alt="Logo"
                           className="navbar-desktop-logo"
                         />

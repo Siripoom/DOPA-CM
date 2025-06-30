@@ -2,7 +2,7 @@
 import React from "react";
 import { Card, Typography, Row, Col } from "antd";
 import "./OrganizationChart.css";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.svg"; // <--- Make sure this import is present and correct!
 import {
   UserOutlined,
   TeamOutlined,
@@ -10,9 +10,29 @@ import {
   BranchesOutlined,
 } from "@ant-design/icons";
 
+// Import your new organization chart details data
+import organizationChartDetails from "./OrganizationChartDetails";
+
 const { Title } = Typography;
 
 const OrganizationChart = ({ districtName }) => {
+  // Get the data for the current district from the new detailed structure
+  const currentOrgData = organizationChartDetails[districtName] || {
+    chief: { name: "ไม่พบข้อมูล", title: "ไม่พบข้อมูล", photo: "" },
+    deputyChief: { name: "ไม่พบข้อมูล", title: "ไม่พบข้อมูล", photo: "" },
+    departments: [],
+  };
+
+  // Helper for rendering the default logo image
+  const renderDefaultLogo = (width, marginBottom) => (
+    <img
+      src={logo} // Use the imported logo here
+      alt="Default Logo"
+      width={width}
+      style={{ borderRadius: "50%", marginBottom: marginBottom }}
+    />
+  );
+
   return (
     <div
       className="org-chart-container"
@@ -22,15 +42,15 @@ const OrganizationChart = ({ districtName }) => {
         แผนผังองค์กร{districtName}
       </Title>
 
-      {/* หัวหน้าส่วนราชการ */}
+      {/* หัวหน้าส่วนราชการ (Chief) */}
       <div className="org-level-1" style={{ marginBottom: "30px" }}>
         <Card
           style={{
             width: "250px",
             margin: "0 auto",
-            display: "flex",
             background: "linear-gradient(45deg, #3b82f6, #1d4ed8)",
             color: "white",
+            display: "flex",
             justifyContent: "center",
             alignItems: "center",
             border: "none",
@@ -45,14 +65,23 @@ const OrganizationChart = ({ districtName }) => {
               padding: "10px",
             }}
           >
-            <img src={logo} width={50} alt="mockup" />
+            {currentOrgData.chief.photo ? (
+              <img
+                className="w-20 h-20"
+                src={currentOrgData.chief.photo}
+                alt={currentOrgData.chief.name}
+                style={{ borderRadius: "50%", marginBottom: "8px" }}
+              />
+            ) : (
+              renderDefaultLogo(80, "8px") // Fallback to default logo
+            )}
             <div
               style={{ fontWeight: "bold", fontSize: "16px", marginTop: "8px" }}
             >
-              นายอำเภอ
+              {currentOrgData.chief.title}
             </div>
             <div style={{ fontSize: "14px", opacity: 0.9 }}>
-              หัวหน้าส่วนราชการ
+              {currentOrgData.chief.name}
             </div>
           </div>
         </Card>
@@ -69,140 +98,118 @@ const OrganizationChart = ({ districtName }) => {
         }}
       ></div>
 
-      {/* รองหัวหน้าส่วนราชการ */}
-      <div className="org-level-2" style={{ marginBottom: "30px" }}>
-        <Row gutter={24} justify="center">
-          <Col>
-            <Card
+      {/* รองหัวหน้าส่วนราชการ (Deputy Chief) */}
+      {currentOrgData.deputyChief &&
+        currentOrgData.deputyChief.name !== "ไม่พบข้อมูล" && (
+          <>
+            <div className="org-level-2" style={{ marginBottom: "30px" }}>
+              <Row gutter={24} justify="center">
+                <Col>
+                  <Card
+                    style={{
+                      width: "200px",
+                      background: "linear-gradient(45deg, #10b981, #059669)",
+                      color: "white",
+                      border: "none",
+                    }}
+                  >
+                    <div
+                      style={{
+                        textAlign: "center",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      {currentOrgData.deputyChief.photo ? (
+                        <img
+                          className="w-20 h-20"
+                          src={currentOrgData.deputyChief.photo}
+                          alt={currentOrgData.deputyChief.name}
+                          // Adjust size as needed
+                          style={{
+                            borderRadius: "50%",
+                            marginBottom: "6px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        />
+                      ) : (
+                        renderDefaultLogo(60, "6px") // Fallback to default logo
+                      )}
+                      <div style={{ fontWeight: "bold", fontSize: "14px" }}>
+                        {currentOrgData.deputyChief.title}
+                      </div>
+                      <div style={{ fontSize: "12px", opacity: 0.9 }}>
+                        {currentOrgData.deputyChief.name}
+                      </div>
+                    </div>
+                  </Card>
+                </Col>
+              </Row>
+            </div>
+
+            {/* เส้นเชื่อม for Deputy */}
+            <div
               style={{
-                width: "200px",
-                background: "linear-gradient(45deg, #10b981, #059669)",
-                color: "white",
-                border: "none",
+                height: "30px",
+                width: "2px",
+                background: "#d1d5db",
+                margin: "0 auto",
+                marginBottom: "20px",
               }}
-            >
-              <div style={{ textAlign: "center" }}>
-                <TeamOutlined
-                  style={{ fontSize: "20px", marginBottom: "6px" }}
-                />
-                <div style={{ fontWeight: "bold", fontSize: "14px" }}>
-                  รองนายอำเภอ
-                </div>
-                <div style={{ fontSize: "12px", opacity: 0.9 }}>
-                  รองหัวหน้าส่วนราชการ
-                </div>
-              </div>
-            </Card>
-          </Col>
-        </Row>
-      </div>
+            ></div>
+          </>
+        )}
 
-      {/* เส้นเชื่อม */}
-      <div
-        style={{
-          height: "30px",
-          width: "2px",
-          background: "#d1d5db",
-          margin: "0 auto",
-          marginBottom: "20px",
-        }}
-      ></div>
-
-      {/* หัวหน้าฝ่าย */}
+      {/* หัวหน้าฝ่าย (Department Heads - dynamic rendering) */}
       <div className="org-level-3">
         <Row gutter={16} justify="center">
-          <Col xs={24} sm={12} md={6}>
-            <Card
-              style={{
-                width: "180px",
-                background: "linear-gradient(45deg, #f59e0b, #d97706)",
-                color: "white",
-                border: "none",
-                marginBottom: "16px",
-              }}
-            >
-              <div style={{ textAlign: "center" }}>
-                <ClusterOutlined
-                  style={{ fontSize: "18px", marginBottom: "4px" }}
-                />
-                <div style={{ fontWeight: "bold", fontSize: "13px" }}>
-                  ฝ่ายอำนวยการ
+          {currentOrgData.departments.map((dept, index) => (
+            <Col key={index} xs={24} sm={12} md={6}>
+              <Card
+                style={{
+                  width: "180px",
+                  background: dept.gradient,
+                  color: "white",
+                  border: "none",
+                  marginBottom: "16px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    textAlign: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                  }}
+                >
+                  {dept.photo ? (
+                    <img
+                      className="w-15 h-15"
+                      src={dept.photo}
+                      alt={dept.head}
+                      style={{ borderRadius: "50%", marginBottom: "4px" }}
+                    />
+                  ) : (
+                    renderDefaultLogo(50, "4px") // Fallback to default logo
+                  )}
+                  <div style={{ fontWeight: "bold", fontSize: "13px" }}>
+                    {dept.name}
+                  </div>
+                  <div style={{ fontSize: "11px", opacity: 0.9 }}>
+                    {dept.head}
+                  </div>
                 </div>
-                <div style={{ fontSize: "11px", opacity: 0.9 }}>
-                  หัวหน้าฝ่าย
-                </div>
-              </div>
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={6}>
-            <Card
-              style={{
-                width: "180px",
-                background: "linear-gradient(45deg, #8b5cf6, #7c3aed)",
-                color: "white",
-                border: "none",
-                marginBottom: "16px",
-              }}
-            >
-              <div style={{ textAlign: "center" }}>
-                <BranchesOutlined
-                  style={{ fontSize: "18px", marginBottom: "4px" }}
-                />
-                <div style={{ fontWeight: "bold", fontSize: "13px" }}>
-                  ฝ่ายปกครอง
-                </div>
-                <div style={{ fontSize: "11px", opacity: 0.9 }}>
-                  หัวหน้าฝ่าย
-                </div>
-              </div>
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={6}>
-            <Card
-              style={{
-                width: "180px",
-                background: "linear-gradient(45deg, #ef4444, #dc2626)",
-                color: "white",
-                border: "none",
-                marginBottom: "16px",
-              }}
-            >
-              <div style={{ textAlign: "center" }}>
-                <TeamOutlined
-                  style={{ fontSize: "18px", marginBottom: "4px" }}
-                />
-                <div style={{ fontWeight: "bold", fontSize: "13px" }}>
-                  ฝ่ายพัฒนาชุมชน
-                </div>
-                <div style={{ fontSize: "11px", opacity: 0.9 }}>
-                  หัวหน้าฝ่าย
-                </div>
-              </div>
-            </Card>
-          </Col>
-          <Col xs={24} sm={12} md={6}>
-            <Card
-              style={{
-                width: "180px",
-                background: "linear-gradient(45deg, #06b6d4, #0891b2)",
-                color: "white",
-                border: "none",
-                marginBottom: "16px",
-              }}
-            >
-              <div style={{ textAlign: "center" }}>
-                <UserOutlined
-                  style={{ fontSize: "18px", marginBottom: "4px" }}
-                />
-                <div style={{ fontWeight: "bold", fontSize: "13px" }}>
-                  ฝ่ายทะเบียน
-                </div>
-                <div style={{ fontSize: "11px", opacity: 0.9 }}>
-                  หัวหน้าฝ่าย
-                </div>
-              </div>
-            </Card>
-          </Col>
+              </Card>
+            </Col>
+          ))}
         </Row>
       </div>
 

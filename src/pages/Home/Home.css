@@ -5,7 +5,6 @@
 .home-container {
   color: rgba(29, 29, 29, 0.9) !important;
   min-height: 100vh;
-  padding: 24px 0;
 }
 
 .home-content {
@@ -590,35 +589,6 @@
   padding: 0 !important;
   color: #fa8c16 !important;
   font-weight: 600 !important;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
-
-.footer-title {
-  color: #262626 !important;
-  margin-bottom: 16px !important;
-}
-
-.footer-contact {
-  font-size: 14px;
-}
-
-.footer-divider {
-  margin: 24px 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #d9d9d9, transparent);
-}
-
-.footer-copyright {
-  font-size: 12px;
 }
 
 /* File Type Colors */

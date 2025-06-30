@@ -33,8 +33,9 @@ import lead from "../../assets/executives/1.jpg";
 import landmark1 from "../../assets/landmark/1.png";
 import landmark2 from "../../assets/landmark/2.png";
 import landmark3 from "../../assets/landmark/3.png";
+import Footer from "../../components/Footer/Footer";
 
-const { Title, Text, Paragraph } = Typography;
+const { Text, Paragraph } = Typography;
 
 const Home = () => {
   // ข้อมูลจำลองสำหรับข่าวประชาสัมพันธ์
@@ -400,7 +401,7 @@ const Home = () => {
                 autoplay
                 prevArrow={<div className="custom-arrow custom-prev">‹</div>}
                 nextArrow={<div className="custom-arrow custom-next">›</div>}
-                autoplaySpeed={5000}
+                autoplaySpeed={3000}
               >
                 {landMarksData.map((news) => (
                   <Card
@@ -954,34 +955,9 @@ const Home = () => {
             ))}
           </Row>
         </Card>
-
-        {/* Footer */}
-        <div className="footer">
-          <Title level={4} className="footer-title">
-            ติดต่อเรา
-          </Title>
-          <Space direction="vertical" size={8}>
-            <Text type="secondary" className="footer-contact">
-              ที่ทำการปกครองจังหวัดเชียงใหม่
-            </Text>
-            <Text type="secondary" className="footer-contact">
-              📍 123 ถนนช้างเผือก ตำบลช้างเผือก อำเภอเมือง จังหวัดเชียงใหม่
-              50300
-            </Text>
-            <Text type="secondary" className="footer-contact">
-              📞 โทร: 053-123-456 | 📠 แฟกซ์: 053-123-457
-            </Text>
-            <Text type="secondary" className="footer-contact">
-              📧 อีเมล: info@chiangmai-admin.go.th
-            </Text>
-          </Space>
-          <div className="footer-divider" />
-          <Text type="secondary" className="footer-copyright">
-            © 2025 ที่ทำการปกครองจังหวัดเชียงใหม่ | Provincial Administration
-            Office Chiang Mai
-          </Text>
-        </div>
       </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

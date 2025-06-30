@@ -11,6 +11,8 @@ import {
   getTotalPopulation,
 } from "../../services/districtsData";
 
+import Footer from "../../components/Footer/Footer";
+
 const { Text } = Typography;
 
 const Districts = () => {
@@ -46,86 +48,89 @@ const Districts = () => {
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
-        padding: "0",
-      }}
-    >
-      {/* Header Section */}
-      <DistrictsPageHeader onSearch={handleSearch} />
-
-      {/* Content Section */}
+    <>
       <div
-        className="container mx-auto"
         style={{
-          padding: "0 24px 60px",
-          marginTop: "-40px",
-          position: "relative",
-          zIndex: 10,
+          minHeight: "100vh",
+          background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+          padding: "0",
         }}
       >
-        {/* Stats Card */}
-        <DistrictsStatsCard
-          totalDistricts={filteredDistricts.length}
-          totalPopulation={getTotalPopulation(districtsData)}
-        />
+        {/* Header Section */}
+        <DistrictsPageHeader onSearch={handleSearch} />
 
-        {/* Districts Grid */}
-        {loading ? (
-          <div
-            style={{
-              textAlign: "center",
-              padding: "100px 0",
-              background: "white",
-              borderRadius: "20px",
-            }}
-          >
-            <Spin size="large" />
-            <div style={{ marginTop: "16px" }}>
-              <Text style={{ fontSize: "16px", color: "#6b7280" }}>
-                กำลังโหลดข้อมูลอำเภอ...
+        {/* Content Section */}
+        <div
+          className="container mx-auto"
+          style={{
+            padding: "0 24px 60px",
+            marginTop: "-40px",
+            position: "relative",
+            zIndex: 10,
+          }}
+        >
+          {/* Stats Card */}
+          <DistrictsStatsCard
+            totalDistricts={filteredDistricts.length}
+            totalPopulation={getTotalPopulation(districtsData)}
+          />
+
+          {/* Districts Grid */}
+          {loading ? (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "100px 0",
+                background: "white",
+                borderRadius: "20px",
+              }}
+            >
+              <Spin size="large" />
+              <div style={{ marginTop: "16px" }}>
+                <Text style={{ fontSize: "16px", color: "#6b7280" }}>
+                  กำลังโหลดข้อมูลอำเภอ...
+                </Text>
+              </div>
+            </div>
+          ) : (
+            <Row gutter={[24, 24]}>
+              {filteredDistricts.map((district) => (
+                <Col xs={24} sm={12} lg={8} xl={6} key={district.id}>
+                  <DistrictCard
+                    district={district}
+                    onClick={showDistrictDetail}
+                  />
+                </Col>
+              ))}
+            </Row>
+          )}
+
+          {/* No Results */}
+          {!loading && filteredDistricts.length === 0 && (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "100px 0",
+                background: "white",
+                borderRadius: "20px",
+              }}
+            >
+              <Text style={{ fontSize: "18px", color: "#6b7280" }}>
+                ไม่พบข้อมูลอำเภอที่ค้นหา
               </Text>
             </div>
-          </div>
-        ) : (
-          <Row gutter={[24, 24]}>
-            {filteredDistricts.map((district) => (
-              <Col xs={24} sm={12} lg={8} xl={6} key={district.id}>
-                <DistrictCard
-                  district={district}
-                  onClick={showDistrictDetail}
-                />
-              </Col>
-            ))}
-          </Row>
-        )}
+          )}
+        </div>
 
-        {/* No Results */}
-        {!loading && filteredDistricts.length === 0 && (
-          <div
-            style={{
-              textAlign: "center",
-              padding: "100px 0",
-              background: "white",
-              borderRadius: "20px",
-            }}
-          >
-            <Text style={{ fontSize: "18px", color: "#6b7280" }}>
-              ไม่พบข้อมูลอำเภอที่ค้นหา
-            </Text>
-          </div>
-        )}
+        {/* Detail Modal */}
+        <DistrictDetailModal
+          visible={detailModalVisible}
+          onClose={closeDetailModal}
+          district={selectedDistrict}
+        />
       </div>
-
-      {/* Detail Modal */}
-      <DistrictDetailModal
-        visible={detailModalVisible}
-        onClose={closeDetailModal}
-        district={selectedDistrict}
-      />
-    </div>
+      <Footer />
+    </>
   );
 };
 
