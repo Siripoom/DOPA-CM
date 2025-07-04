@@ -31,6 +31,7 @@ import {
 import KnowledgeCard from "../../components/KnowledgeCard/KnowledgeCard";
 import KnowledgeDetail from "../../components/KnowledgeDetail /KnowledgeDetail";
 import "./Knowledge.css";
+import Footer from "../../components/Footer/Footer";
 
 const { Title, Text } = Typography;
 const { Search } = Input;
@@ -297,236 +298,239 @@ const Knowledge = () => {
   };
 
   return (
-    <div className="knowledge-container">
-      {/* Header Section */}
-      <div className="knowledge-header">
-        <div className="knowledge-header-content">
-          <div className="knowledge-title-section">
-            <BulbOutlined className="knowledge-main-icon" />
-            <div>
-              <Title level={2} className="knowledge-main-title">
-                สาระและความรู้
-              </Title>
-              <Text className="knowledge-subtitle">
-                คู่มือและความรู้ที่เป็นประโยชน์สำหรับประชาชน
-              </Text>
+    <>
+      <div className="knowledge-container">
+        {/* Header Section */}
+        <div className="knowledge-header  bg-gradient-to-r from-blue-500 to-sky-400">
+          <div className="knowledge-header-content">
+            <div className="knowledge-title-section">
+              <BulbOutlined className="knowledge-main-icon" />
+              <div>
+                <Title level={2} className="knowledge-main-title">
+                  สาระและความรู้
+                </Title>
+                <Text className="knowledge-subtitle">
+                  คู่มือและความรู้ที่เป็นประโยชน์สำหรับประชาชน
+                </Text>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Tabs Section */}
-      <Card className="knowledge-tabs-card">
-        <Tabs
-          activeKey={activeTab}
-          onChange={handleTabChange}
-          className="knowledge-tabs"
-        >
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <BookOutlined />
-                ทั้งหมด ({getCategoryCount("all")})
-              </span>
-            }
-            key="all"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <FireOutlined />
-                ยอดนิยม ({getCategoryCount("popular")})
-              </span>
-            }
-            key="popular"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <StarFilled />
-                แนะนำ ({getCategoryCount("featured")})
-              </span>
-            }
-            key="featured"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <BulbOutlined />
-                ใหม่ล่าสุด ({getCategoryCount("new")})
-              </span>
-            }
-            key="new"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <TeamOutlined />
-                การบริการ ({getCategoryCount("การบริการ")})
-              </span>
-            }
-            key="การบริการ"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <SafetyOutlined />
-                ความปลอดภัย ({getCategoryCount("ความปลอดภัย")})
-              </span>
-            }
-            key="ความปลอดภัย"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <UserOutlined />
-                สิทธิประชาชน ({getCategoryCount("สิทธิประชาชน")})
-              </span>
-            }
-            key="สิทธิประชาชน"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <SettingOutlined />
-                กฎหมายและระเบียบ ({getCategoryCount("กฎหมายและระเบียบ")})
-              </span>
-            }
-            key="กฎหมายและระเบียบ"
-          />
-        </Tabs>
-      </Card>
-
-      {/* Filter and Search Section */}
-      <Card className="knowledge-filter-card">
-        <Row gutter={[16, 16]} align="middle">
-          <Col xs={24} sm={12} md={8}>
-            <Search
-              placeholder="ค้นหาบทความ..."
-              allowClear
-              enterButton={<SearchOutlined />}
-              size="large"
-              onSearch={handleSearch}
-              className="knowledge-search"
+        {/* Tabs Section */}
+        <Card className="knowledge-tabs-card">
+          <Tabs
+            activeKey={activeTab}
+            onChange={handleTabChange}
+            className="knowledge-tabs"
+          >
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <BookOutlined />
+                  ทั้งหมด ({getCategoryCount("all")})
+                </span>
+              }
+              key="all"
             />
-          </Col>
-          <Col xs={12} sm={6} md={4}>
-            <Select
-              placeholder="หมวดหมู่"
-              size="large"
-              value={categoryFilter}
-              onChange={handleCategoryFilter}
-              className="knowledge-filter-select"
-              suffixIcon={<FilterOutlined />}
-            >
-              <Option value="all">ทั้งหมด</Option>
-              <Option value="การบริการ">การบริการ</Option>
-              <Option value="สิทธิประชาชน">สิทธิประชาชน</Option>
-              <Option value="ความปลอดภัย">ความปลอดภัย</Option>
-              <Option value="กฎหมายและระเบียบ">กฎหมายและระเบียบ</Option>
-              <Option value="การพัฒนาชุมชน">การพัฒนาชุมชน</Option>
-              <Option value="เทคโนโลยี">เทคโนโลยี</Option>
-              <Option value="สิ่งแวดล้อม">สิ่งแวดล้อม</Option>
-            </Select>
-          </Col>
-          <Col xs={12} sm={6} md={4}>
-            <Select
-              placeholder="ระดับความยาก"
-              size="large"
-              value={difficultyFilter}
-              onChange={handleDifficultyFilter}
-              className="knowledge-filter-select"
-            >
-              <Option value="all">ทั้งหมด</Option>
-              <Option value="เริ่มต้น">เริ่มต้น</Option>
-              <Option value="ปานกลาง">ปานกลาง</Option>
-              <Option value="ขั้นสูง">ขั้นสูง</Option>
-            </Select>
-          </Col>
-          <Col xs={12} sm={6} md={4}>
-            <Select
-              placeholder="เรียงตาม"
-              size="large"
-              value={sortBy}
-              onChange={handleSortChange}
-              className="knowledge-sort-select"
-            >
-              <Option value="date">วันที่ล่าสุด</Option>
-              <Option value="views">ยอดดูมากสุด</Option>
-              <Option value="rating">คะแนนสูงสุด</Option>
-              <Option value="likes">ถูกใจมากสุด</Option>
-            </Select>
-          </Col>
-          <Col xs={24} md={4}>
-            <div className="knowledge-stats">
-              <Space size={8} direction="vertical">
-                <Text strong>
-                  ทั้งหมด:{" "}
-                  <span className="stat-number">
-                    {filteredKnowledge.length}
-                  </span>{" "}
-                  บทความ
-                </Text>
-                <Text type="secondary" className="stat-text">
-                  หน้า {currentPage} จาก{" "}
-                  {Math.ceil(filteredKnowledge.length / pageSize)}
-                </Text>
-              </Space>
-            </div>
-          </Col>
-        </Row>
-      </Card>
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <FireOutlined />
+                  ยอดนิยม ({getCategoryCount("popular")})
+                </span>
+              }
+              key="popular"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <StarFilled />
+                  แนะนำ ({getCategoryCount("featured")})
+                </span>
+              }
+              key="featured"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <BulbOutlined />
+                  ใหม่ล่าสุด ({getCategoryCount("new")})
+                </span>
+              }
+              key="new"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <TeamOutlined />
+                  การบริการ ({getCategoryCount("การบริการ")})
+                </span>
+              }
+              key="การบริการ"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <SafetyOutlined />
+                  ความปลอดภัย ({getCategoryCount("ความปลอดภัย")})
+                </span>
+              }
+              key="ความปลอดภัย"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <UserOutlined />
+                  สิทธิประชาชน ({getCategoryCount("สิทธิประชาชน")})
+                </span>
+              }
+              key="สิทธิประชาชน"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <SettingOutlined />
+                  กฎหมายและระเบียบ ({getCategoryCount("กฎหมายและระเบียบ")})
+                </span>
+              }
+              key="กฎหมายและระเบียบ"
+            />
+          </Tabs>
+        </Card>
 
-      {/* Knowledge Grid Section */}
-      <div className="knowledge-content">
-        {loading ? (
-          <div className="knowledge-loading">
-            <Spin size="large" />
-            <Text>กำลังโหลดข้อมูล...</Text>
-          </div>
-        ) : currentKnowledge.length > 0 ? (
-          <>
-            <Row gutter={[24, 24]}>
-              {currentKnowledge.map((knowledge) => (
-                <Col xs={24} sm={12} lg={8} xl={6} key={knowledge.id}>
-                  <KnowledgeCard
-                    knowledge={knowledge}
-                    onViewDetails={handleViewDetails}
-                  />
-                </Col>
-              ))}
-            </Row>
-
-            {/* Pagination */}
-            <div className="knowledge-pagination">
-              <Pagination
-                current={currentPage}
-                total={filteredKnowledge.length}
-                pageSize={pageSize}
-                onChange={setCurrentPage}
-                showSizeChanger={false}
-                showQuickJumper
-                showTotal={(total, range) =>
-                  `${range[0]}-${range[1]} จาก ${total} รายการ`
-                }
+        {/* Filter and Search Section */}
+        <Card className="knowledge-filter-card">
+          <Row gutter={[16, 16]} align="middle">
+            <Col xs={24} sm={12} md={8}>
+              <Search
+                placeholder="ค้นหาบทความ..."
+                allowClear
+                enterButton={<SearchOutlined />}
+                size="large"
+                onSearch={handleSearch}
+                className="knowledge-search"
               />
-            </div>
-          </>
-        ) : (
-          <Empty
-            description="ไม่พบบทความที่ตรงกับเงื่อนไขการค้นหา"
-            className="knowledge-empty"
-          />
-        )}
-      </div>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <Select
+                placeholder="หมวดหมู่"
+                size="large"
+                value={categoryFilter}
+                onChange={handleCategoryFilter}
+                className="knowledge-filter-select"
+                suffixIcon={<FilterOutlined />}
+              >
+                <Option value="all">ทั้งหมด</Option>
+                <Option value="การบริการ">การบริการ</Option>
+                <Option value="สิทธิประชาชน">สิทธิประชาชน</Option>
+                <Option value="ความปลอดภัย">ความปลอดภัย</Option>
+                <Option value="กฎหมายและระเบียบ">กฎหมายและระเบียบ</Option>
+                <Option value="การพัฒนาชุมชน">การพัฒนาชุมชน</Option>
+                <Option value="เทคโนโลยี">เทคโนโลยี</Option>
+                <Option value="สิ่งแวดล้อม">สิ่งแวดล้อม</Option>
+              </Select>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <Select
+                placeholder="ระดับความยาก"
+                size="large"
+                value={difficultyFilter}
+                onChange={handleDifficultyFilter}
+                className="knowledge-filter-select"
+              >
+                <Option value="all">ทั้งหมด</Option>
+                <Option value="เริ่มต้น">เริ่มต้น</Option>
+                <Option value="ปานกลาง">ปานกลาง</Option>
+                <Option value="ขั้นสูง">ขั้นสูง</Option>
+              </Select>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <Select
+                placeholder="เรียงตาม"
+                size="large"
+                value={sortBy}
+                onChange={handleSortChange}
+                className="knowledge-sort-select"
+              >
+                <Option value="date">วันที่ล่าสุด</Option>
+                <Option value="views">ยอดดูมากสุด</Option>
+                <Option value="rating">คะแนนสูงสุด</Option>
+                <Option value="likes">ถูกใจมากสุด</Option>
+              </Select>
+            </Col>
+            <Col xs={24} md={4}>
+              <div className="knowledge-stats">
+                <Space size={8} direction="vertical">
+                  <Text strong>
+                    ทั้งหมด:{" "}
+                    <span className="stat-number">
+                      {filteredKnowledge.length}
+                    </span>{" "}
+                    บทความ
+                  </Text>
+                  <Text type="secondary" className="stat-text">
+                    หน้า {currentPage} จาก{" "}
+                    {Math.ceil(filteredKnowledge.length / pageSize)}
+                  </Text>
+                </Space>
+              </div>
+            </Col>
+          </Row>
+        </Card>
 
-      {/* Knowledge Detail Modal */}
-      <KnowledgeDetail
-        knowledge={selectedKnowledge}
-        visible={detailVisible}
-        onClose={handleCloseDetail}
-      />
-    </div>
+        {/* Knowledge Grid Section */}
+        <div className="knowledge-content">
+          {loading ? (
+            <div className="knowledge-loading">
+              <Spin size="large" />
+              <Text>กำลังโหลดข้อมูล...</Text>
+            </div>
+          ) : currentKnowledge.length > 0 ? (
+            <>
+              <Row gutter={[24, 24]}>
+                {currentKnowledge.map((knowledge) => (
+                  <Col xs={24} sm={12} lg={8} xl={6} key={knowledge.id}>
+                    <KnowledgeCard
+                      knowledge={knowledge}
+                      onViewDetails={handleViewDetails}
+                    />
+                  </Col>
+                ))}
+              </Row>
+
+              {/* Pagination */}
+              <div className="knowledge-pagination">
+                <Pagination
+                  current={currentPage}
+                  total={filteredKnowledge.length}
+                  pageSize={pageSize}
+                  onChange={setCurrentPage}
+                  showSizeChanger={false}
+                  showQuickJumper
+                  showTotal={(total, range) =>
+                    `${range[0]}-${range[1]} จาก ${total} รายการ`
+                  }
+                />
+              </div>
+            </>
+          ) : (
+            <Empty
+              description="ไม่พบบทความที่ตรงกับเงื่อนไขการค้นหา"
+              className="knowledge-empty"
+            />
+          )}
+        </div>
+
+        {/* Knowledge Detail Modal */}
+        <KnowledgeDetail
+          knowledge={selectedKnowledge}
+          visible={detailVisible}
+          onClose={handleCloseDetail}
+        />
+      </div>
+      <Footer />
+    </>
   );
 };
 

@@ -31,7 +31,7 @@ const DistrictDetailModal = ({ visible, onClose, district }) => {
       open={visible}
       onCancel={onClose}
       footer={null}
-      width={800}
+      width={1200}
       style={{ top: 20 }}
       bodyStyle={{ padding: 0 }}
     >
@@ -58,7 +58,7 @@ const DistrictDetailModal = ({ visible, onClose, district }) => {
         {/* Modal Content */}
         <div style={{ padding: "32px" }}>
           <Collapse
-            defaultActiveKey={["1"]}
+            defaultActiveKey={["1", "3"]}
             ghost
             style={{
               background: "transparent",

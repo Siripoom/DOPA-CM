@@ -46,6 +46,20 @@ import anupong from "../../assets/district/sankamphaeng/IMG_091017111642.jpg";
 import bunluer from "../../assets/district/hot/IMG_091017101033.jpg";
 import sutthichaai from "../../assets/district/hot/IMG_200710215558.jpg";
 
+import bumrung from "../../assets/district/doitao/IMG_091017111404.jpg";
+import vijai from "../../assets/district/doitao/IMG_040810142502.jpg";
+
+import preecha from "../../assets/district/omkoi/IMG_310510162441.jpg";
+import setwut from "../../assets/district/omkoi/IMG_190710135824.jpg";
+import witawut from "../../assets/district/omkoi/IMG_180212135412.jpg";
+
+import sittisuk from "../../assets/district/wianghaeng/IMG_091017111012.jpg";
+import surapon from "../../assets/district/wianghaeng/IMG_210610135126.jpg";
+import chutchayan from "../../assets/district/wianghaeng/IMG_210610135326.jpg";
+
+import anawut from "../../assets/district/chaiprakan/IMG_091017112345.jpg";
+import niyamon from "../../assets/district/maewang/IMG_300610134620.jpg";
+
 const organizationChartDetails = {
   // Data for "อำเภอเมืองเชียงใหม่" (matching the 'name' in districtsData.js)
   อำเภอเมืองเชียงใหม่: {
@@ -292,7 +306,7 @@ const organizationChartDetails = {
         name: "นางอลงกรณ์ จันทร์กระจ่าง",
         head: "หน.ฝ่ายทะเบียนและบัตร",
         title: "หัวหน้าฝ่าย",
-        photo: warapha, // Placeholder
+        photo: null, // Placeholder
         gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
       },
     ],
@@ -676,6 +690,286 @@ const organizationChartDetails = {
       {
         name: "หน.ฝ่ายทะเบียนและบัตร",
         head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอดอยเต่า: {
+    chief: {
+      name: "นายอนันท์ ภัทรเดชมงคล",
+      title: "นายอำเภอ",
+      photo: bumrung, // Placeholder
+    },
+    deputyChief: {
+      name: "นายวิจัย เพ็ญพัฒนากุล",
+      title: "ปลัดอาวุโส",
+      photo: vijai, // Placeholder
+    },
+    departments: [
+      {
+        name: "นายวิจัย เพ็ญพัฒนากุล",
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: vijai, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายวิจัย เพ็ญพัฒนากุล",
+        title: "หัวหน้าฝ่าย",
+        photo: vijai, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นายวิจัย เพ็ญพัฒนากุล",
+        title: "หัวหน้าฝ่าย",
+        photo: vijai, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอออมก๋อย: {
+    chief: {
+      name: null,
+      title: "นายอำเภอ",
+      photo: null, // Placeholder
+    },
+    deputyChief: {
+      name: "นายปรีชา ศิรินาม",
+      title: "ปลัดอาวุโส",
+      photo: preecha, // Placeholder
+    },
+    departments: [
+      {
+        name: "นายปรีชา ศิรินาม",
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: preecha, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายเศรษฐวุฒิ คำมูล",
+        title: "หัวหน้าฝ่าย",
+        photo: setwut, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นายวิทวัส บุตรด๊ะ",
+        title: "หัวหน้าฝ่าย",
+        photo: witawut, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอเวียงแหง: {
+    chief: {
+      name: "นายสิทธิ์ศักดิ์ อภิกุลชัยสุทธิ์",
+      title: "นายอำเภอ",
+      photo: sittisuk, // Placeholder
+    },
+    deputyChief: {
+      name: "นายสายัณห์ ใจบุญ",
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: "นายสายัณห์ ใจบุญ",
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายชัชญาณ ไชยยามูล",
+        title: "หัวหน้าฝ่าย",
+        photo: chutchayan, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นายสุรพล บุญมิตร",
+        title: "หัวหน้าฝ่าย",
+        photo: surapon, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอไชยปราการ: {
+    chief: {
+      name: "นายอนวัช สัตตบุศย์",
+      title: "นายอำเภอ",
+      photo: anawut, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: null,
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายวีรวัฒน์ กิจมานะทรัพย์",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นายอุทัย สอนจีน",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอแม่วาง: {
+    chief: {
+      name: "นายสุทิน จันทร์งาม",
+      title: "นายอำเภอ",
+      photo: null, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: null,
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นางสาวนิยมล ยาวินัง",
+        title: "หัวหน้าฝ่าย",
+        photo: niyamon, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอแม่ออน: {
+    chief: {
+      name: "นางสาวภัทราพร ลายจุด",
+      title: "นายอำเภอ",
+      photo: null, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: null,
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายนคร กาวิชัย",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นายบุญศรี เตชะหมื่น",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอดอยหล่อ: {
+    chief: {
+      name: null,
+      title: "นายอำเภอ",
+      photo: null, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: null,
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายเศรษฐวุฒิ คำมูล",
+        title: "หัวหน้าฝ่าย",
+        photo: setwut, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นางสาวกนกวรรณ สมนา",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอกัลยาณิวัฒนา: {
+    chief: {
+      name: "นายบุญลือ ธรรมธรานุรักษ์",
+      title: "นายอำเภอ",
+      photo: bunluer, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: null,
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: null,
+        head: "นายเศรษฐวุฒิ คำมูล",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: null,
+        head: "นางสาวกนกวรรณ สมนา",
         title: "หัวหน้าฝ่าย",
         photo: null, // Placeholder
         gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet

@@ -213,7 +213,7 @@ const Announcements = () => {
   return (
     <div className="bg-slate-50 min-h-screen font-sans">
       {/* Header Section */}
-      <header className="bg-slate-800 text-white shadow-lg">
+      <header className="bg-gradient-to-r from-blue-500 to-sky-400 text-white shadow-lg">
         <div className="container mx-auto px-6 py-5 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <SoundOutlined className="text-4xl text-sky-400" />
@@ -224,14 +224,6 @@ const Announcements = () => {
               </p>
             </div>
           </div>
-          <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            size="large"
-            className="bg-sky-600 hover:bg-sky-700 border-none"
-          >
-            เพิ่มประชาสัมพันธ์
-          </Button>
         </div>
       </header>
 

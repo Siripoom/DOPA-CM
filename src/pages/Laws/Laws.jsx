@@ -31,6 +31,8 @@ import LawCard from "../../components/LawCard/LawCard";
 import LawDetail from "../../components/LawDetail/LawDetail";
 import "./Laws.css";
 
+import Footer from "../../components/Footer/Footer";
+
 const { Title, Text } = Typography;
 const { Search } = Input;
 const { Option } = Select;
@@ -296,220 +298,223 @@ const Laws = () => {
   };
 
   return (
-    <div className="laws-container">
-      {/* Header Section */}
-      <div className="laws-header">
-        <div className="laws-header-content">
-          <div className="laws-title-section">
-            <SafetyOutlined className="laws-main-icon" />
-            <div>
-              <Title level={2} className="laws-main-title">
-                กฎหมายน่ารู้
-              </Title>
-              <Text className="laws-subtitle">
-                กฎหมายและระเบียบที่ประชาชนควรทราบ
-              </Text>
+    <>
+      <div className="laws-container">
+        {/* Header Section */}
+        <div className="laws-header bg-gradient-to-r from-blue-500 to-sky-400">
+          <div className="laws-header-content">
+            <div className="laws-title-section">
+              <SafetyOutlined className="laws-main-icon" />
+              <div>
+                <Title level={2} className="laws-main-title">
+                  กฎหมายน่ารู้
+                </Title>
+                <Text className="laws-subtitle">
+                  กฎหมายและระเบียบที่ประชาชนควรทราบ
+                </Text>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Tabs Section */}
-      <Card className="laws-tabs-card">
-        <Tabs
-          activeKey={activeTab}
-          onChange={handleTabChange}
-          className="laws-tabs"
-        >
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <BookOutlined />
-                ทั้งหมด ({getCategoryCount("all")})
-              </span>
-            }
-            key="all"
-          />
-
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <FileTextOutlined />
-                กฎหมายปกครอง ({getCategoryCount("กฎหมายปกครอง")})
-              </span>
-            }
-            key="กฎหมายปกครอง"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <SafetyOutlined />
-                กฎหมายอาญา ({getCategoryCount("กฎหมายอาญา")})
-              </span>
-            }
-            key="กฎหมายอาญา"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <TeamOutlined />
-                กฎหมายแพ่ง ({getCategoryCount("กฎหมายแพ่ง")})
-              </span>
-            }
-            key="กฎหมายแพ่ง"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <BankOutlined />
-                กฎหมายรัฐธรรมนูญ ({getCategoryCount("กฎหมายรัฐธรรมนูญ")})
-              </span>
-            }
-            key="กฎหมายรัฐธรรมนูญ"
-          />
-        </Tabs>
-      </Card>
-
-      {/* Filter and Search Section */}
-      <Card className="laws-filter-card">
-        <Row gutter={[16, 16]} align="middle">
-          <Col xs={24} sm={12} md={6}>
-            <Search
-              placeholder="ค้นหากฎหมาย..."
-              allowClear
-              enterButton={<SearchOutlined />}
-              size="large"
-              onSearch={handleSearch}
-              className="laws-search"
+        {/* Tabs Section */}
+        <Card className="laws-tabs-card">
+          <Tabs
+            activeKey={activeTab}
+            onChange={handleTabChange}
+            className="laws-tabs"
+          >
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <BookOutlined />
+                  ทั้งหมด ({getCategoryCount("all")})
+                </span>
+              }
+              key="all"
             />
-          </Col>
-          <Col xs={12} sm={6} md={4}>
-            <Select
-              placeholder="หมวดหมู่"
-              size="large"
-              value={categoryFilter}
-              onChange={handleCategoryFilter}
-              className="laws-filter-select"
-              suffixIcon={<FilterOutlined />}
-            >
-              <Option value="all">ทั้งหมด</Option>
-              <Option value="กฎหมายแพ่ง">กฎหมายแพ่ง</Option>
-              <Option value="กฎหมายอาญา">กฎหมายอาญา</Option>
-              <Option value="กฎหมายรัฐธรรมนูญ">กฎหมายรัฐธรรมนูญ</Option>
-              <Option value="กฎหมายปกครอง">กฎหมายปกครอง</Option>
-              <Option value="กฎหมายแรงงาน">กฎหมายแรงงาน</Option>
-              <Option value="กฎหมายสิ่งแวดล้อม">กฎหมายสิ่งแวดล้อม</Option>
-              <Option value="กฎหมายธุรกิจ">กฎหมายธุรกิจ</Option>
-              <Option value="กฎหมายภาษี">กฎหมายภาษี</Option>
-            </Select>
-          </Col>
-          <Col xs={12} sm={6} md={3}>
-            <Select
-              placeholder="สถานะ"
-              size="large"
-              value={statusFilter}
-              onChange={handleStatusFilter}
-              className="laws-filter-select"
-            >
-              <Option value="all">ทั้งหมด</Option>
-              <Option value="ใช้บังคับ">ใช้บังคับ</Option>
-              <Option value="ยกเลิก">ยกเลิก</Option>
-              <Option value="ปรับปรุง">ปรับปรุง</Option>
-            </Select>
-          </Col>
-          <Col xs={12} sm={6} md={3}>
-            <Select
-              placeholder="ความสำคัญ"
-              size="large"
-              value={importanceFilter}
-              onChange={handleImportanceFilter}
-              className="laws-filter-select"
-            >
-              <Option value="all">ทั้งหมด</Option>
-              <Option value="สูง">สำคัญมาก</Option>
-              <Option value="ปานกลาง">สำคัญ</Option>
-              <Option value="ทั่วไป">ทั่วไป</Option>
-            </Select>
-          </Col>
-          <Col xs={12} sm={6} md={3}>
-            <Select
-              placeholder="เรียงตาม"
-              size="large"
-              value={sortBy}
-              onChange={handleSortChange}
-              className="laws-sort-select"
-            >
-              <Option value="date">วันที่ล่าสุด</Option>
-              <Option value="importance">ความสำคัญ</Option>
-              <Option value="views">ยอดดูมากสุด</Option>
-              <Option value="downloads">ดาวน์โหลดมากสุด</Option>
-            </Select>
-          </Col>
-          <Col xs={24} md={5}>
-            <div className="laws-stats">
-              <Space size={8} direction="vertical">
-                <Text strong>
-                  ทั้งหมด:{" "}
-                  <span className="stat-number">{filteredLaws.length}</span>{" "}
-                  ฉบับ
-                </Text>
-                <Text type="secondary" className="stat-text">
-                  หน้า {currentPage} จาก{" "}
-                  {Math.ceil(filteredLaws.length / pageSize)}
-                </Text>
-              </Space>
-            </div>
-          </Col>
-        </Row>
-      </Card>
 
-      {/* Laws Grid Section */}
-      <div className="laws-content">
-        {loading ? (
-          <div className="laws-loading">
-            <Spin size="large" />
-            <Text>กำลังโหลดข้อมูล...</Text>
-          </div>
-        ) : currentLaws.length > 0 ? (
-          <>
-            <Row gutter={[24, 24]}>
-              {currentLaws.map((law) => (
-                <Col xs={24} sm={12} lg={8} xl={6} key={law.id}>
-                  <LawCard law={law} onViewDetails={handleViewDetails} />
-                </Col>
-              ))}
-            </Row>
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <FileTextOutlined />
+                  กฎหมายปกครอง ({getCategoryCount("กฎหมายปกครอง")})
+                </span>
+              }
+              key="กฎหมายปกครอง"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <SafetyOutlined />
+                  กฎหมายอาญา ({getCategoryCount("กฎหมายอาญา")})
+                </span>
+              }
+              key="กฎหมายอาญา"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <TeamOutlined />
+                  กฎหมายแพ่ง ({getCategoryCount("กฎหมายแพ่ง")})
+                </span>
+              }
+              key="กฎหมายแพ่ง"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <BankOutlined />
+                  กฎหมายรัฐธรรมนูญ ({getCategoryCount("กฎหมายรัฐธรรมนูญ")})
+                </span>
+              }
+              key="กฎหมายรัฐธรรมนูญ"
+            />
+          </Tabs>
+        </Card>
 
-            {/* Pagination */}
-            <div className="laws-pagination">
-              <Pagination
-                current={currentPage}
-                total={filteredLaws.length}
-                pageSize={pageSize}
-                onChange={setCurrentPage}
-                showSizeChanger={false}
-                showQuickJumper
-                showTotal={(total, range) =>
-                  `${range[0]}-${range[1]} จาก ${total} รายการ`
-                }
+        {/* Filter and Search Section */}
+        <Card className="laws-filter-card">
+          <Row gutter={[16, 16]} align="middle">
+            <Col xs={24} sm={12} md={6}>
+              <Search
+                placeholder="ค้นหากฎหมาย..."
+                allowClear
+                enterButton={<SearchOutlined />}
+                size="large"
+                onSearch={handleSearch}
+                className="laws-search"
               />
-            </div>
-          </>
-        ) : (
-          <Empty
-            description="ไม่พบกฎหมายที่ตรงกับเงื่อนไขการค้นหา"
-            className="laws-empty"
-          />
-        )}
-      </div>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <Select
+                placeholder="หมวดหมู่"
+                size="large"
+                value={categoryFilter}
+                onChange={handleCategoryFilter}
+                className="laws-filter-select"
+                suffixIcon={<FilterOutlined />}
+              >
+                <Option value="all">ทั้งหมด</Option>
+                <Option value="กฎหมายแพ่ง">กฎหมายแพ่ง</Option>
+                <Option value="กฎหมายอาญา">กฎหมายอาญา</Option>
+                <Option value="กฎหมายรัฐธรรมนูญ">กฎหมายรัฐธรรมนูญ</Option>
+                <Option value="กฎหมายปกครอง">กฎหมายปกครอง</Option>
+                <Option value="กฎหมายแรงงาน">กฎหมายแรงงาน</Option>
+                <Option value="กฎหมายสิ่งแวดล้อม">กฎหมายสิ่งแวดล้อม</Option>
+                <Option value="กฎหมายธุรกิจ">กฎหมายธุรกิจ</Option>
+                <Option value="กฎหมายภาษี">กฎหมายภาษี</Option>
+              </Select>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+              <Select
+                placeholder="สถานะ"
+                size="large"
+                value={statusFilter}
+                onChange={handleStatusFilter}
+                className="laws-filter-select"
+              >
+                <Option value="all">ทั้งหมด</Option>
+                <Option value="ใช้บังคับ">ใช้บังคับ</Option>
+                <Option value="ยกเลิก">ยกเลิก</Option>
+                <Option value="ปรับปรุง">ปรับปรุง</Option>
+              </Select>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+              <Select
+                placeholder="ความสำคัญ"
+                size="large"
+                value={importanceFilter}
+                onChange={handleImportanceFilter}
+                className="laws-filter-select"
+              >
+                <Option value="all">ทั้งหมด</Option>
+                <Option value="สูง">สำคัญมาก</Option>
+                <Option value="ปานกลาง">สำคัญ</Option>
+                <Option value="ทั่วไป">ทั่วไป</Option>
+              </Select>
+            </Col>
+            <Col xs={12} sm={6} md={3}>
+              <Select
+                placeholder="เรียงตาม"
+                size="large"
+                value={sortBy}
+                onChange={handleSortChange}
+                className="laws-sort-select"
+              >
+                <Option value="date">วันที่ล่าสุด</Option>
+                <Option value="importance">ความสำคัญ</Option>
+                <Option value="views">ยอดดูมากสุด</Option>
+                <Option value="downloads">ดาวน์โหลดมากสุด</Option>
+              </Select>
+            </Col>
+            <Col xs={24} md={5}>
+              <div className="laws-stats">
+                <Space size={8} direction="vertical">
+                  <Text strong>
+                    ทั้งหมด:{" "}
+                    <span className="stat-number">{filteredLaws.length}</span>{" "}
+                    ฉบับ
+                  </Text>
+                  <Text type="secondary" className="stat-text">
+                    หน้า {currentPage} จาก{" "}
+                    {Math.ceil(filteredLaws.length / pageSize)}
+                  </Text>
+                </Space>
+              </div>
+            </Col>
+          </Row>
+        </Card>
 
-      {/* Law Detail Modal */}
-      <LawDetail
-        law={selectedLaw}
-        visible={detailVisible}
-        onClose={handleCloseDetail}
-      />
-    </div>
+        {/* Laws Grid Section */}
+        <div className="laws-content">
+          {loading ? (
+            <div className="laws-loading">
+              <Spin size="large" />
+              <Text>กำลังโหลดข้อมูล...</Text>
+            </div>
+          ) : currentLaws.length > 0 ? (
+            <>
+              <Row gutter={[24, 24]}>
+                {currentLaws.map((law) => (
+                  <Col xs={24} sm={12} lg={8} xl={6} key={law.id}>
+                    <LawCard law={law} onViewDetails={handleViewDetails} />
+                  </Col>
+                ))}
+              </Row>
+
+              {/* Pagination */}
+              <div className="laws-pagination">
+                <Pagination
+                  current={currentPage}
+                  total={filteredLaws.length}
+                  pageSize={pageSize}
+                  onChange={setCurrentPage}
+                  showSizeChanger={false}
+                  showQuickJumper
+                  showTotal={(total, range) =>
+                    `${range[0]}-${range[1]} จาก ${total} รายการ`
+                  }
+                />
+              </div>
+            </>
+          ) : (
+            <Empty
+              description="ไม่พบกฎหมายที่ตรงกับเงื่อนไขการค้นหา"
+              className="laws-empty"
+            />
+          )}
+        </div>
+
+        {/* Law Detail Modal */}
+        <LawDetail
+          law={selectedLaw}
+          visible={detailVisible}
+          onClose={handleCloseDetail}
+        />
+      </div>
+      <Footer />
+    </>
   );
 };
 

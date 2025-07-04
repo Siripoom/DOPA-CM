@@ -172,7 +172,7 @@ const Default = () => {
         </div>
       }
     >
-      <div className="executive-info">
+      <div className="executive-info ">
         <Title level={4} className="executive-name">
           {executive.name} {executive.surname}
         </Title>

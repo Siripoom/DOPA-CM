@@ -1,147 +1,83 @@
 import React from "react";
-import { Card, Typography, Space, Tag, Button, Avatar } from "antd";
-import {
-  CalendarOutlined,
-  EnvironmentOutlined,
-  TeamOutlined,
-  EyeOutlined,
-  ShareAltOutlined,
-} from "@ant-design/icons";
-import "./ActivityCard.css";
+import { Calendar, MapPin, Users, Tag, Eye } from "lucide-react";
 
-const { Text } = Typography;
+// Helper to format date in Thai style
+const formatThaiDate = (dateString, timeString) => {
+  const date = new Date(dateString);
+  const thaiYear = date.getFullYear() + 543;
+  const thaiMonth = new Intl.DateTimeFormat("th-TH", { month: "long" }).format(
+    date
+  );
+  const day = date.getDate();
+  return `${day} ${thaiMonth} ${thaiYear} เวลา ${timeString} น.`;
+};
 
-const ActivityCard = ({ activity }) => {
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "กำลังดำเนินการ":
-        return "processing";
-      case "เสร็จสิ้น":
-        return "success";
-      case "กำลังมา":
-        return "warning";
-      default:
-        return "default";
-    }
-  };
-
-  const getStatusText = (status) => {
-    switch (status) {
-      case "กำลังดำเนินการ":
-        return "🔄 กำลังดำเนินการ";
-      case "เสร็จสิ้น":
-        return "✅ เสร็จสิ้นแล้ว";
-      case "กำลังมา":
-        return "📅 กำลังจะมาถึง";
-      default:
-        return status;
-    }
-  };
+// Helper for the status badge
+const StatusBadge = ({ status }) => {
+  const isUpcoming = status === "กำลังมา";
+  const bgColor = isUpcoming
+    ? "bg-blue-100 text-blue-800"
+    : "bg-green-100 text-green-800";
+  const dotColor = isUpcoming ? "bg-blue-500" : "bg-green-500";
+  const text = isUpcoming ? "กำลังจะมาถึง" : "เสร็จสิ้น";
 
   return (
-    <Card
-      hoverable
-      className="activity-card"
-      cover={
-        <div className="activity-cover">
-          <img
-            src={activity.image}
-            alt={activity.title}
-            className="activity-image"
-          />
-          <div className="activity-overlay">
-            <Tag
-              color={getStatusColor(activity.status)}
-              className="activity-status-tag"
+    <div
+      className={`absolute top-4 right-4 inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${bgColor}`}
+    >
+      <span className={`w-2 h-2 mr-2 rounded-full ${dotColor}`}></span>
+      {text}
+    </div>
+  );
+};
+
+const ActivityCard = ({ activity }) => {
+  return (
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out h-full flex flex-col">
+      <div className="relative">
+        <img
+          className="w-full h-48 object-cover"
+          src={activity.image}
+          alt={activity.title}
+        />
+        <StatusBadge status={activity.status} />
+      </div>
+
+      <div className="p-6 flex flex-col flex-grow">
+        <div className="flex flex-wrap gap-2 mb-3">
+          {activity.tags.map((tag) => (
+            <span
+              key={tag}
+              className="bg-gray-200 text-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full"
             >
-              {getStatusText(activity.status)}
-            </Tag>
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <h3 className="text-lg font-bold text-gray-900 mb-4 leading-tight">
+          {activity.title}
+        </h3>
+
+        {/* Spacer to push details to the bottom */}
+        <div className="flex-grow"></div>
+
+        <div className="space-y-3 text-sm text-gray-600">
+          <div className="flex items-center">
+            <Calendar className="w-4 h-4 mr-3 text-gray-400" />
+            <span>{formatThaiDate(activity.date, activity.time)}</span>
+          </div>
+          <div className="flex items-start">
+            <MapPin className="w-4 h-4 mr-3 text-gray-400 flex-shrink-0 mt-0.5" />
+            <span>{activity.location}</span>
+          </div>
+          <div className="flex items-center">
+            <Users className="w-4 h-4 mr-3 text-gray-400" />
+            <span>ผู้เข้าร่วม {activity.participants} คน</span>
           </div>
         </div>
-      }
-      bodyStyle={{ padding: "20px" }}
-      actions={[
-        <Button
-          type="text"
-          icon={<EyeOutlined />}
-          className="activity-action-btn"
-        >
-          ดูรายละเอียด
-        </Button>,
-        <Button
-          type="text"
-          icon={<ShareAltOutlined />}
-          className="activity-action-btn"
-        >
-          แชร์
-        </Button>,
-      ]}
-    >
-      {/* หมวดหมู่กิจกรรม */}
-      <div className="activity-tags">
-        {activity.tags.map((tag, index) => (
-          <Tag key={index} className="activity-tag">
-            {tag}
-          </Tag>
-        ))}
       </div>
-
-      {/* ชื่อกิจกรรม */}
-      <div className="activity-title">
-        <Text strong className="activity-title-text">
-          {activity.title}
-        </Text>
-      </div>
-
-      {/* รายละเอียดกิจกรรม */}
-      <Space direction="vertical" size={12} className="activity-details">
-        <div className="activity-detail-item">
-          <CalendarOutlined className="activity-icon activity-icon-date" />
-          <Text className="activity-detail-text">
-            {new Date(activity.date).toLocaleDateString("th-TH", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}{" "}
-            เวลา {activity.time} น.
-          </Text>
-        </div>
-
-        <div className="activity-detail-item">
-          <EnvironmentOutlined className="activity-icon activity-icon-location" />
-          <Text className="activity-detail-text">{activity.location}</Text>
-        </div>
-
-        <div className="activity-detail-item">
-          <TeamOutlined className="activity-icon activity-icon-participants" />
-          <Text className="activity-detail-text">
-            ผู้เข้าร่วม {activity.participants} คน
-          </Text>
-        </div>
-      </Space>
-
-      {/* ผู้จัดกิจกรรม */}
-      {activity.organizer && (
-        <div className="activity-organizer">
-          <Avatar size="small" icon={<TeamOutlined />} />
-          <Text type="secondary" className="activity-organizer-text">
-            จัดโดย: {activity.organizer}
-          </Text>
-        </div>
-      )}
-
-      {/* สถิติการดู */}
-      {activity.views && (
-        <div className="activity-stats">
-          <Space size={16}>
-            <span className="activity-stat-item">
-              <EyeOutlined className="activity-stat-icon" />
-              <Text type="secondary">{activity.views.toLocaleString()}</Text>
-            </span>
-          </Space>
-        </div>
-      )}
-    </Card>
+    </div>
   );
 };
 

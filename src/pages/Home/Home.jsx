@@ -25,6 +25,7 @@ import {
   TeamOutlined,
   DownloadOutlined,
   ShareAltOutlined,
+  BookOutlined,
   HeartOutlined,
   CommentOutlined,
 } from "@ant-design/icons";
@@ -34,6 +35,7 @@ import landmark1 from "../../assets/landmark/1.png";
 import landmark2 from "../../assets/landmark/2.png";
 import landmark3 from "../../assets/landmark/3.png";
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const { Text, Paragraph } = Typography;
 
@@ -371,9 +373,13 @@ const Home = () => {
             </div>
           }
           extra={
-            <Button type="text" className="card-extra-button card-extra-news">
+            <Link
+              to="/announcements"
+              type="text"
+              className="card-extra-button card-extra-news"
+            >
               ดูทั้งหมด <RightOutlined />
-            </Button>
+            </Link>
           }
         >
           <Row gutter={[24, 24]}>
@@ -498,9 +504,13 @@ const Home = () => {
             </div>
           }
           extra={
-            <Button type="text" className="card-extra-button card-extra-news">
+            <Link
+              to="/announcements"
+              type="text"
+              className="card-extra-button card-extra-news"
+            >
               ดูทั้งหมด <RightOutlined />
-            </Button>
+            </Link>
           }
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -564,7 +574,7 @@ const Home = () => {
         {/* หนังสือราชการ */}
         <Row gutter={[24, 24]} style={{ marginBottom: "40px" }}>
           {/* การเงินและบัญชี */}
-          <Col xs={24} lg={8}>
+          <Col xs={24} lg={6}>
             <Card
               className="document-card"
               title={
@@ -574,10 +584,10 @@ const Home = () => {
                       style={{ color: "#ffffff", fontSize: "16px" }}
                     />
                   </div>
-                  <div>
+                  <div className="p-3">
                     <div className="document-title-text">หนังสือราชการ</div>
                     <Tag color="green" className="document-tag">
-                      การเงินและบัญชี
+                      กลุ่มงานปกครอง
                     </Tag>
                   </div>
                 </div>
@@ -643,8 +653,8 @@ const Home = () => {
             </Card>
           </Col>
 
-          {/* การปกคลอง */}
-          <Col xs={24} lg={8}>
+          {/* การปกครอง */}
+          <Col xs={24} lg={6}>
             <Card
               className="document-card"
               title={
@@ -654,10 +664,10 @@ const Home = () => {
                       style={{ color: "#ffffff", fontSize: "16px" }}
                     />
                   </div>
-                  <div>
+                  <div className="p-3">
                     <div className="document-title-text">หนังสือราชการ</div>
                     <Tag color="blue" className="document-tag">
-                      การปกคลอง
+                      กลุ่มงานความมั่นคง
                     </Tag>
                   </div>
                 </div>
@@ -724,7 +734,7 @@ const Home = () => {
           </Col>
 
           {/* ความมั่นคง */}
-          <Col xs={24} lg={8}>
+          <Col xs={24} lg={6}>
             <Card
               className="document-card"
               title={
@@ -734,10 +744,89 @@ const Home = () => {
                       style={{ color: "#ffffff", fontSize: "16px" }}
                     />
                   </div>
-                  <div>
+                  <div className="p-3">
                     <div className="document-title-text">หนังสือราชการ</div>
                     <Tag color="red" className="document-tag">
-                      ความมั่นคง
+                      กลุ่มงานการเงินและบัญชี
+                    </Tag>
+                  </div>
+                </div>
+              }
+            >
+              {documentsData.security.map((doc) => (
+                <div
+                  key={doc.id}
+                  className={`document-item document-item-${doc.priority}`}
+                >
+                  <div className="document-header">
+                    <Text strong className="document-title-item">
+                      {doc.title}
+                    </Text>
+                    <Tag
+                      color={getFileTypeColor(doc.fileType)}
+                      style={{ fontSize: "10px" }}
+                    >
+                      {doc.fileType}
+                    </Tag>
+                  </div>
+
+                  <Space
+                    direction="vertical"
+                    size={2}
+                    className="document-meta"
+                  >
+                    <Text type="secondary" className="document-meta-text">
+                      📅 {doc.date} {doc.time}
+                    </Text>
+                    <Text type="secondary" className="document-meta-text">
+                      👤 {doc.author}
+                    </Text>
+                    <Text type="secondary" className="document-meta-text">
+                      📄 {doc.docNumber}
+                    </Text>
+                    <div className="document-footer">
+                      <Text type="secondary" className="document-size">
+                        📁 {doc.fileSize}
+                      </Text>
+                      <Space size={8}>
+                        <Button
+                          type="text"
+                          size="small"
+                          icon={<DownloadOutlined />}
+                        />
+                        <Button
+                          type="text"
+                          size="small"
+                          icon={<ShareAltOutlined />}
+                        />
+                      </Space>
+                    </div>
+                  </Space>
+                </div>
+              ))}
+              <Button
+                type="link"
+                className="document-read-more document-read-more-security"
+              >
+                ดูเพิ่มเติม <RightOutlined />
+              </Button>
+            </Card>
+          </Col>
+          {/* ความเป็นธรรม */}
+          <Col xs={24} lg={6}>
+            <Card
+              className="document-card"
+              title={
+                <div className="document-title">
+                  <div className="card-icon card-icon-knowledge">
+                    <BookOutlined
+                      style={{ color: "#ffffff", fontSize: "16px" }}
+                    />
+                  </div>
+                  <div className="p-3">
+                    <div className="document-title-text">หนังสือราชการ</div>
+                    <Tag color="yellow" className="document-tag">
+                      กลุ่มงานอำนวยความเป็นธรรม
                     </Tag>
                   </div>
                 </div>
@@ -804,7 +893,7 @@ const Home = () => {
           </Col>
         </Row>
 
-        {/* กิจกรรมที่ทำการปกคลอง */}
+        {/* กิจกรรมที่ทำการปกครอง */}
         <Card
           className="section-card"
           title={
@@ -815,17 +904,18 @@ const Home = () => {
                 />
               </div>
               <span className="card-title-text">
-                กิจกรรมที่ทำการปกคลอง จังหวัดเชียงใหม่
+                กิจกรรมที่ทำการปกครอง จังหวัดเชียงใหม่
               </span>
             </div>
           }
           extra={
-            <Button
+            <Link
+              to="/activities"
               type="text"
-              className="card-extra-button card-extra-activity"
+              className="card-extra-button card-extra-news"
             >
               ดูทั้งหมด <RightOutlined />
-            </Button>
+            </Link>
           }
         >
           <Row gutter={[24, 24]}>
@@ -868,7 +958,7 @@ const Home = () => {
           </Row>
         </Card>
 
-        {/* เรื่องน่ารู้กับปกคลองจังหวัด */}
+        {/* เรื่องน่ารู้กับปกครองจังหวัด */}
         <Card
           className="section-card"
           title={
@@ -877,17 +967,18 @@ const Home = () => {
                 <BulbOutlined style={{ color: "#ffffff", fontSize: "18px" }} />
               </div>
               <span className="card-title-text">
-                เรื่องน่ารู้กับปกคลองจังหวัด
+                เรื่องน่ารู้กับปกครองจังหวัด
               </span>
             </div>
           }
           extra={
-            <Button
+            <Link
+              to="/knowledge"
               type="text"
-              className="card-extra-button card-extra-knowledge"
+              className="card-extra-button card-extra-news"
             >
               ดูทั้งหมด <RightOutlined />
-            </Button>
+            </Link>
           }
         >
           <Row gutter={[24, 24]}>

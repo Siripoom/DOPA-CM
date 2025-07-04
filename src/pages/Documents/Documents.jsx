@@ -27,6 +27,7 @@ import {
 } from "@ant-design/icons";
 import DocumentCard from "../../components/DocumentCard/DocumentCard";
 import DocumentDetail from "../../components/DocumentDetail/DocumentDetail";
+import Footer from "../../components/Footer/Footer";
 import "./Documents.css";
 
 const { Title, Text } = Typography;
@@ -262,233 +263,211 @@ const Documents = () => {
   };
 
   return (
-    <div className="documents-container">
-      {/* Header Section */}
-      <div className="documents-header">
-        <div className="documents-header-content">
-          <div className="documents-title-section">
-            <FileTextOutlined className="documents-main-icon" />
-            <div>
-              <Title level={2} className="documents-main-title">
-                หนังสือราชการ
-              </Title>
-              <Text className="documents-subtitle">
-                เอกสารและหนังสือราชการของจังหวัดเชียงใหม่
-              </Text>
+    <>
+      <div className="documents-container">
+        {/* Header Section */}
+        <div className="documents-header bg-gradient-to-r from-blue-500 to-sky-400">
+          <div className="documents-header-content ">
+            <div className="documents-title-section ">
+              <FileTextOutlined className="documents-main-icon" />
+              <div>
+                <Title level={2} className="documents-main-title">
+                  หนังสือราชการ
+                </Title>
+                <Text className="documents-subtitle">
+                  เอกสารและหนังสือราชการของจังหวัดเชียงใหม่
+                </Text>
+              </div>
             </div>
           </div>
-          <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            className="add-document-btn"
-          >
-            เพิ่มเอกสาร
-          </Button>
         </div>
-      </div>
 
-      {/* Tabs Section */}
-      <Card className="documents-tabs-card">
-        <Tabs
-          activeKey={activeTab}
-          onChange={handleTabChange}
-          className="documents-tabs"
-        >
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <FileTextOutlined />
-                ทั้งหมด ({getCategoryCount("all")})
-              </span>
-            }
-            key="all"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <BankOutlined />
-                การเงินและบัญชี ({getCategoryCount("การเงินและบัญชี")})
-              </span>
-            }
-            key="การเงินและบัญชี"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <TeamOutlined />
-                การปกครอง ({getCategoryCount("การปกครอง")})
-              </span>
-            }
-            key="การปกครอง"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <SafetyOutlined />
-                ความมั่นคง ({getCategoryCount("ความมั่นคง")})
-              </span>
-            }
-            key="ความมั่นคง"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <UserOutlined />
-                การเจ้าหน้าที่ ({getCategoryCount("การเจ้าหน้าที่")})
-              </span>
-            }
-            key="การเจ้าหน้าที่"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <ProjectOutlined />
-                ยุทธศาสตร์ ({getCategoryCount("ยุทธศาสตร์")})
-              </span>
-            }
-            key="ยุทธศาสตร์"
-          />
-          <TabPane
-            tab={
-              <span className="tab-item">
-                <SettingOutlined />
-                โครงสร้างพื้นฐาน ({getCategoryCount("โครงสร้างพื้นฐาน")})
-              </span>
-            }
-            key="โครงสร้างพื้นฐาน"
-          />
-        </Tabs>
-      </Card>
-
-      {/* Filter and Search Section */}
-      <Card className="documents-filter-card">
-        <Row gutter={[16, 16]} align="middle">
-          <Col xs={24} sm={12} md={8}>
-            <Search
-              placeholder="ค้นหาเอกสาร..."
-              allowClear
-              enterButton={<SearchOutlined />}
-              size="large"
-              onSearch={handleSearch}
-              className="documents-search"
+        {/* Tabs Section */}
+        <Card className="documents-tabs-card">
+          <Tabs
+            activeKey={activeTab}
+            onChange={handleTabChange}
+            className="documents-tabs"
+          >
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <FileTextOutlined />
+                  ทั้งหมด ({getCategoryCount("all")})
+                </span>
+              }
+              key="all"
             />
-          </Col>
-          <Col xs={12} sm={6} md={4}>
-            <Select
-              placeholder="หมวดหมู่"
-              size="large"
-              value={categoryFilter}
-              onChange={handleCategoryFilter}
-              className="documents-filter-select"
-              suffixIcon={<FilterOutlined />}
-            >
-              <Option value="all">ทั้งหมด</Option>
-              <Option value="การเงินและบัญชี">การเงินและบัญชี</Option>
-              <Option value="การปกครอง">การปกครอง</Option>
-              <Option value="ความมั่นคง">ความมั่นคง</Option>
-              <Option value="การเจ้าหน้าที่">การเจ้าหน้าที่</Option>
-              <Option value="ยุทธศาสตร์">ยุทธศาสตร์</Option>
-              <Option value="โครงสร้างพื้นฐาน">โครงสร้างพื้นฐาน</Option>
-            </Select>
-          </Col>
-          <Col xs={12} sm={6} md={4}>
-            <Select
-              placeholder="ความสำคัญ"
-              size="large"
-              value={priorityFilter}
-              onChange={handlePriorityFilter}
-              className="documents-filter-select"
-            >
-              <Option value="all">ทั้งหมด</Option>
-              <Option value="high">ด่วนมาก</Option>
-              <Option value="medium">ปกติ</Option>
-              <Option value="low">ไม่เร่งด่วน</Option>
-            </Select>
-          </Col>
-          <Col xs={12} sm={6} md={4}>
-            <Select
-              placeholder="เรียงตาม"
-              size="large"
-              value={sortBy}
-              onChange={handleSortChange}
-              className="documents-sort-select"
-            >
-              <Option value="date">วันที่ล่าสุด</Option>
-              <Option value="views">ยอดดูมากสุด</Option>
-              <Option value="downloads">ดาวน์โหลดมากสุด</Option>
-              <Option value="priority">ความสำคัญ</Option>
-            </Select>
-          </Col>
-          <Col xs={24} md={4}>
-            <div className="documents-stats">
-              <Space size={8} direction="vertical">
-                <Text strong>
-                  ทั้งหมด:{" "}
-                  <span className="stat-number">
-                    {filteredDocuments.length}
-                  </span>{" "}
-                  เอกสาร
-                </Text>
-                <Text type="secondary" className="stat-text">
-                  หน้า {currentPage} จาก{" "}
-                  {Math.ceil(filteredDocuments.length / pageSize)}
-                </Text>
-              </Space>
-            </div>
-          </Col>
-        </Row>
-      </Card>
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <BankOutlined />
+                  การเงินและบัญชี ({getCategoryCount("การเงินและบัญชี")})
+                </span>
+              }
+              key="การเงินและบัญชี"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <TeamOutlined />
+                  การปกครอง ({getCategoryCount("การปกครอง")})
+                </span>
+              }
+              key="การปกครอง"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <TeamOutlined />
+                  ความมั่นคง ({getCategoryCount("ความมั่นคง")})
+                </span>
+              }
+              key="ความมั่นคง"
+            />
+            <TabPane
+              tab={
+                <span className="tab-item">
+                  <TeamOutlined />
+                  อำนวยความเป็นธรรม ({getCategoryCount("การอำนวยความเป็นธรรม")})
+                </span>
+              }
+              key="การอำนวยความเป็นธรรม"
+            />
+          </Tabs>
+        </Card>
 
-      {/* Documents Grid Section */}
-      <div className="documents-content">
-        {loading ? (
-          <div className="documents-loading">
-            <Spin size="large" />
-            <Text>กำลังโหลดข้อมูล...</Text>
-          </div>
-        ) : currentDocuments.length > 0 ? (
-          <>
-            <Row gutter={[24, 24]}>
-              {currentDocuments.map((document) => (
-                <Col xs={24} sm={12} lg={8} xl={6} key={document.id}>
-                  <DocumentCard
-                    document={document}
-                    onViewDetails={handleViewDetails}
-                  />
-                </Col>
-              ))}
-            </Row>
-
-            {/* Pagination */}
-            <div className="documents-pagination">
-              <Pagination
-                current={currentPage}
-                total={filteredDocuments.length}
-                pageSize={pageSize}
-                onChange={setCurrentPage}
-                showSizeChanger={false}
-                showQuickJumper
-                showTotal={(total, range) =>
-                  `${range[0]}-${range[1]} จาก ${total} รายการ`
-                }
+        {/* Filter and Search Section */}
+        <Card className="documents-filter-card">
+          <Row gutter={[16, 16]} align="middle">
+            <Col xs={24} sm={12} md={8}>
+              <Search
+                placeholder="ค้นหาเอกสาร..."
+                allowClear
+                enterButton={<SearchOutlined />}
+                size="large"
+                onSearch={handleSearch}
+                className="documents-search"
               />
-            </div>
-          </>
-        ) : (
-          <Empty
-            description="ไม่พบเอกสารที่ตรงกับเงื่อนไขการค้นหา"
-            className="documents-empty"
-          />
-        )}
-      </div>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <Select
+                placeholder="หมวดหมู่"
+                size="large"
+                value={categoryFilter}
+                onChange={handleCategoryFilter}
+                className="documents-filter-select"
+                suffixIcon={<FilterOutlined />}
+              >
+                <Option value="all">ทั้งหมด</Option>
+                <Option value="การเงินและบัญชี">การเงินและบัญชี</Option>
+                <Option value="การปกครอง">การปกครอง</Option>
+                <Option value="ความมั่นคง">ความมั่นคง</Option>
+                <Option value="การเจ้าหน้าที่">การเจ้าหน้าที่</Option>
+                <Option value="ยุทธศาสตร์">ยุทธศาสตร์</Option>
+                <Option value="โครงสร้างพื้นฐาน">โครงสร้างพื้นฐาน</Option>
+              </Select>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <Select
+                placeholder="ความสำคัญ"
+                size="large"
+                value={priorityFilter}
+                onChange={handlePriorityFilter}
+                className="documents-filter-select"
+              >
+                <Option value="all">ทั้งหมด</Option>
+                <Option value="high">ด่วนมาก</Option>
+                <Option value="medium">ปกติ</Option>
+                <Option value="low">ไม่เร่งด่วน</Option>
+              </Select>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <Select
+                placeholder="เรียงตาม"
+                size="large"
+                value={sortBy}
+                onChange={handleSortChange}
+                className="documents-sort-select"
+              >
+                <Option value="date">วันที่ล่าสุด</Option>
+                <Option value="views">ยอดดูมากสุด</Option>
+                <Option value="downloads">ดาวน์โหลดมากสุด</Option>
+                <Option value="priority">ความสำคัญ</Option>
+              </Select>
+            </Col>
+            <Col xs={24} md={4}>
+              <div className="documents-stats">
+                <Space size={8} direction="vertical">
+                  <Text strong>
+                    ทั้งหมด:{" "}
+                    <span className="stat-number">
+                      {filteredDocuments.length}
+                    </span>{" "}
+                    เอกสาร
+                  </Text>
+                  <Text type="secondary" className="stat-text">
+                    หน้า {currentPage} จาก{" "}
+                    {Math.ceil(filteredDocuments.length / pageSize)}
+                  </Text>
+                </Space>
+              </div>
+            </Col>
+          </Row>
+        </Card>
 
-      {/* Document Detail Modal */}
-      <DocumentDetail
-        document={selectedDocument}
-        visible={detailVisible}
-        onClose={handleCloseDetail}
-      />
-    </div>
+        {/* Documents Grid Section */}
+        <div className="documents-content">
+          {loading ? (
+            <div className="documents-loading">
+              <Spin size="large" />
+              <Text>กำลังโหลดข้อมูล...</Text>
+            </div>
+          ) : currentDocuments.length > 0 ? (
+            <>
+              <Row gutter={[24, 24]}>
+                {currentDocuments.map((document) => (
+                  <Col xs={24} sm={12} lg={8} xl={6} key={document.id}>
+                    <DocumentCard
+                      document={document}
+                      onViewDetails={handleViewDetails}
+                    />
+                  </Col>
+                ))}
+              </Row>
+
+              {/* Pagination */}
+              <div className="documents-pagination">
+                <Pagination
+                  current={currentPage}
+                  total={filteredDocuments.length}
+                  pageSize={pageSize}
+                  onChange={setCurrentPage}
+                  showSizeChanger={false}
+                  showQuickJumper
+                  showTotal={(total, range) =>
+                    `${range[0]}-${range[1]} จาก ${total} รายการ`
+                  }
+                />
+              </div>
+            </>
+          ) : (
+            <Empty
+              description="ไม่พบเอกสารที่ตรงกับเงื่อนไขการค้นหา"
+              className="documents-empty"
+            />
+          )}
+        </div>
+
+        {/* Document Detail Modal */}
+        <DocumentDetail
+          document={selectedDocument}
+          visible={detailVisible}
+          onClose={handleCloseDetail}
+        />
+      </div>
+      <Footer />
+    </>
   );
 };
 
