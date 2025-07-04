@@ -77,7 +77,7 @@ const ExecutivesPage = () => {
               >
                 <Title level={2} className="section-title p-2">
                   <TeamOutlined className="section-title-icon" />
-                  ขอบเขตงานที่รับผิดชอบ
+                  ทำเนียบผู้บริหาร
                 </Title>
                 <div className="deputies-links p-3">
                   <Space direction="vertical">

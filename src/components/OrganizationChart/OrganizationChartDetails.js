@@ -27,6 +27,25 @@ import chachawal from "../../assets/district/saraphi/IMG_300114104056.jpg";
 
 import sarawut from "../../assets/district/chiangdao/IMG_091017111907.jpg";
 
+import nitiya from "../../assets/district/chomthong/IMG_091017112423.jpg";
+import punmanee from "../../assets/district/chomthong/IMG_210610153432.jpg";
+
+import autha from "../../assets/district/maechaem/IMG_120215134951.jpg";
+import adisak from "../../assets/district/maechaem/IMG_190710083815.jpg";
+
+import chatree from "../../assets/district/samoeng/IMG_091017112015.jpg";
+import suputra from "../../assets/district/samoeng/IMG_210610141432.jpg";
+
+import sawang from "../../assets/district/fang/IMG_210610170800.jpg";
+import nopkun from "../../assets/district/fang/IMG_220610093130.jpg";
+
+import sakut from "../../assets/district/sanpatong/IMG_210610142651.jpg";
+
+import anupong from "../../assets/district/sankamphaeng/IMG_091017111642.jpg";
+
+import bunluer from "../../assets/district/hot/IMG_091017101033.jpg";
+import sutthichaai from "../../assets/district/hot/IMG_200710215558.jpg";
+
 const organizationChartDetails = {
   // Data for "อำเภอเมืองเชียงใหม่" (matching the 'name' in districtsData.js)
   อำเภอเมืองเชียงใหม่: {
@@ -47,7 +66,7 @@ const organizationChartDetails = {
         title: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
         photo: null, // Placeholder: Replace with actual path
         // icon: null, // We'll rely on photo primarily, can keep icon for fallback if needed
-        gradient: "linear-gradient(45deg, #f59e0b, #d97706)", // Orange
+        gradient: "from-sky-300 to-sky-400", // Orange
       },
       {
         name: "หน.ฝ่ายความมั่นคง",
@@ -55,7 +74,7 @@ const organizationChartDetails = {
         title: "หน.ฝ่ายความมั่นคง",
         photo: peerasuk, // Placeholder: Replace with actual path
         // icon: null,
-        gradient: "linear-gradient(45deg, #8b5cf6, #7c3aed)", // Purple
+        gradient: "from-sky-300 to-sky-400", // Purple
       },
       {
         name: "ฝ่ายพัฒนาชุมชน", // Example department not in your image, but in previous code
@@ -63,7 +82,7 @@ const organizationChartDetails = {
         title: "หน.ฝ่ายทะเบียนและบัตร",
         photo: dumlong, // Placeholder: Replace with actual path
         // icon: null,
-        gradient: "linear-gradient(45deg, #ef4444, #dc2626)", // Red
+        gradient: "from-sky-300 to-sky-400", // Red
       },
     ],
   },
@@ -307,6 +326,356 @@ const organizationChartDetails = {
       {
         name: "นายเศรษฐพล ทนันชัย",
         head: "หน.ฝ่ายทะเบียนและบัตร",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอจอมทอง: {
+    chief: {
+      name: "นางนิติยา พงษ์พานิช",
+      title: "นายอำเภอ",
+      photo: nitiya, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "นายปุณณมี จันทร์ตาศรี",
+        head: "หน.ฝ่ายทะเบียนและบัตร",
+        title: "หัวหน้าฝ่าย",
+        photo: punmanee, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอแม่แจ่ม: {
+    chief: {
+      name: "นายอรรถชา กัมปนาท",
+      title: "นายอำเภอ",
+      photo: autha, // Placeholder
+    },
+    deputyChief: {
+      name: "นายอดิศักดิ์ ดวงจินดา",
+      title: "ปลัดอาวุโส",
+      photo: adisak, // Placeholder
+    },
+    departments: [
+      {
+        name: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        head: "นายอดิศักดิ์ ดวงจินดา",
+        title: "หัวหน้าฝ่าย",
+        photo: adisak, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอสะเมิง: {
+    chief: {
+      name: "นายชาตรี กิตติธนดิตถ์",
+      title: "นายอำเภอ",
+      photo: chatree, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นางสุพัตรา เกษศิริ",
+        title: "หัวหน้าฝ่าย",
+        photo: suputra, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอฝาง: {
+    chief: {
+      name: "นายชัชวาลย์ ปัญญา",
+      title: "นายอำเภอ",
+      photo: chatree, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นายนพคุณ สุวรรณฤทธิ์",
+        title: "หัวหน้าฝ่าย",
+        photo: nopkun, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอฝาง: {
+    chief: {
+      name: "นายชัชวาลย์ ปัญญา",
+      title: "นายอำเภอ",
+      photo: chachawal, // Placeholder
+    },
+    deputyChief: {
+      name: "นายชาตรี กิตติธนดิตถ์",
+      title: "ปลัดอาวุโส",
+      photo: chatree, // Placeholder
+    },
+    departments: [
+      {
+        name: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        head: "นายชาตรี กิตติธนดิตถ์",
+        title: "หัวหน้าฝ่าย",
+        photo: chatree, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายแสวง กาศรีวิชัย",
+        title: "หัวหน้าฝ่าย",
+        photo: sawang, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นายนพคุณ สุวรรณฤทธิ์",
+        title: "หัวหน้าฝ่าย",
+        photo: nopkun, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอแม่อาย: {
+    chief: {
+      name: null,
+      title: "นายอำเภอ",
+      photo: null, // Placeholder
+    },
+    deputyChief: {
+      name: "นายอรรถชา กัมปนาทแสนยากร",
+      title: "ปลัดอาวุโส",
+      photo: autha, // Placeholder
+    },
+    departments: [
+      {
+        name: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        head: "นายอรรถชา กัมปนาทแสนยากร",
+        title: "หัวหน้าฝ่าย",
+        photo: autha, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายชานนท์ ดวงมณี",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นางสาววราปรียา ปรามาลย์",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอพร้าว: {
+    chief: {
+      name: "นายทรงศักดิ์ วลัยใจ",
+      title: "นายอำเภอ",
+      photo: null, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: null,
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายรังษี กลับทวี",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นางสลีล คำภาแก้ว",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอสันป่าตอง: {
+    chief: {
+      name: "นายศักดิ์ชัย คุณานุวัฒน์ชัย",
+      title: "นายอำเภอ",
+      photo: sukchai, // Placeholder
+    },
+    deputyChief: {
+      name: "นายสงัด บูรณภัทรโชติ",
+      title: "ปลัดอาวุโส",
+      photo: sakut, // Placeholder
+    },
+    departments: [
+      {
+        name: "นายสงัด บูรณภัทรโชติ",
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: sakut, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายสาธิต กุหลาบทอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นางวาสนา บุญธรรมช่วย",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอสันกำแพง: {
+    chief: {
+      name: "นายอนุพงษ์ วาวงศ์มูล",
+      title: "นายอำเภอ",
+      photo: anupong, // Placeholder
+    },
+    deputyChief: {
+      name: null,
+      title: "ปลัดอาวุโส",
+      photo: null, // Placeholder
+    },
+    departments: [
+      {
+        name: null,
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: null,
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: "นางนฤมล เมืองเดช",
+        title: "หัวหน้าฝ่าย",
+        photo: null, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+    ],
+  },
+  อำเภอฮอด: {
+    chief: {
+      name: "นายอนันท์ ภัทรเดชมงคล",
+      title: "นายอำเภอ",
+      photo: null, // Placeholder
+    },
+    deputyChief: {
+      name: "นายบุญลือ ธรรมธรานุรักษ์ปลัดอาวุโส",
+      title: "ปลัดอาวุโส",
+      photo: bunluer, // Placeholder
+    },
+    departments: [
+      {
+        name: "นายบุญลือ ธรรมธรานุรักษ์ปลัดอาวุโส",
+        head: "หน.กลุ่มงาน/ฝ่ายบริหารงานปกครอง",
+        title: "หัวหน้าฝ่าย",
+        photo: bunluer, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)",
+      },
+      {
+        name: "หน.ฝ่ายความมั่นคง",
+        head: "นายสุทธิชัย     ตรีศิลสัตย์",
+        title: "หัวหน้าฝ่าย",
+        photo: sutthichaai, // Placeholder
+        gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
+      },
+      {
+        name: "หน.ฝ่ายทะเบียนและบัตร",
+        head: null,
         title: "หัวหน้าฝ่าย",
         photo: null, // Placeholder
         gradient: "linear-gradient(45deg, #a855f7, #9333ea)", // Violet
