@@ -83,238 +83,238 @@ const Home = () => {
     },
   ];
   const newsData = [
-    {
-      id: 1,
-      title:
-        "ประกาศผู้ผ่านการสอบข้าราชการปกครองประเภทพิเศษ ตำแหน่งปกครองอำเภอ สำนักงานปกครองจังหวัดเชียงใหม่ เรียงใหม่ที่ 1",
-      date: "2025-05-20",
-      time: "09:48:07",
-      author: "กลุ่มงานการเจ้าหน้าที่",
-      category: "ข่าวประชาสัมพันธ์",
-      isNew: true,
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop&crop=face",
-      views: 1250,
-      likes: 45,
-    },
-    {
-      id: 2,
-      title:
-        "เชิญชวนเข้าร่วมงานประชุมคณะกรรมการจัดทำแผนพัฒนาท้องถิ่น (แผนพัฒนาท้องถิ่น 4 ปี)",
-      date: "2025-05-18",
-      time: "14:30:15",
-      author: "กลุ่มงานยุทธศาสตร์",
-      category: "ข่าวประชาสัมพันธ์",
-      isNew: true,
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop",
-      views: 890,
-      likes: 32,
-    },
-    {
-      id: 3,
-      title:
-        "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
-      date: "2025-05-15",
-      time: "11:22:33",
-      author: "กลุ่มงานโครงสร้างพื้นฐาน",
-      category: "ข่าวประชาสัมพันธ์",
-      isNew: false,
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
-      views: 567,
-      likes: 18,
-    },
-    {
-      id: 4,
-      title:
-        "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
-      date: "2025-05-15",
-      time: "11:22:33",
-      author: "กลุ่มงานโครงสร้างพื้นฐาน",
-      category: "ข่าวประชาสัมพันธ์",
-      isNew: false,
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
-      views: 567,
-      likes: 18,
-    },
-    {
-      id: 5,
-      title:
-        "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
-      date: "2025-05-15",
-      time: "11:22:33",
-      author: "กลุ่มงานโครงสร้างพื้นฐาน",
-      category: "ข่าวประชาสัมพันธ์",
-      isNew: false,
-      image:
-        "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
-      views: 567,
-      likes: 18,
-    },
+    // {
+    //   // id: 1,
+    //   // title:
+    //   //   "ประกาศผู้ผ่านการสอบข้าราชการปกครองประเภทพิเศษ ตำแหน่งปกครองอำเภอ สำนักงานปกครองจังหวัดเชียงใหม่ เรียงใหม่ที่ 1",
+    //   // date: "2025-05-20",
+    //   // time: "09:48:07",
+    //   // author: "กลุ่มงานการเจ้าหน้าที่",
+    //   // category: "ข่าวประชาสัมพันธ์",
+    //   // isNew: true,
+    //   // // image:
+    //   // //   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop&crop=face",
+    //   // views: 1250,
+    //   // likes: 45,
+    // },
+    // {
+    //   id: 2,
+    //   title:
+    //     "เชิญชวนเข้าร่วมงานประชุมคณะกรรมการจัดทำแผนพัฒนาท้องถิ่น (แผนพัฒนาท้องถิ่น 4 ปี)",
+    //   date: "2025-05-18",
+    //   time: "14:30:15",
+    //   author: "กลุ่มงานยุทธศาสตร์",
+    //   category: "ข่าวประชาสัมพันธ์",
+    //   isNew: true,
+    //   image:
+    //     "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop",
+    //   views: 890,
+    //   likes: 32,
+    // },
+    // {
+    //   id: 3,
+    //   title:
+    //     "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
+    //   date: "2025-05-15",
+    //   time: "11:22:33",
+    //   author: "กลุ่มงานโครงสร้างพื้นฐาน",
+    //   category: "ข่าวประชาสัมพันธ์",
+    //   isNew: false,
+    //   image:
+    //     "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
+    //   views: 567,
+    //   likes: 18,
+    // },
+    // {
+    //   id: 4,
+    //   title:
+    //     "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
+    //   date: "2025-05-15",
+    //   time: "11:22:33",
+    //   author: "กลุ่มงานโครงสร้างพื้นฐาน",
+    //   category: "ข่าวประชาสัมพันธ์",
+    //   isNew: false,
+    //   image:
+    //     "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
+    //   views: 567,
+    //   likes: 18,
+    // },
+    // {
+    //   id: 5,
+    //   title:
+    //     "แจ้งการปิดถนนชั่วคราวเพื่อซ่อมแซมสะพาน บริเวณกิโลเมตรที่ 15 ถนนเชียงใหม่-ฝาง",
+    //   date: "2025-05-15",
+    //   time: "11:22:33",
+    //   author: "กลุ่มงานโครงสร้างพื้นฐาน",
+    //   category: "ข่าวประชาสัมพันธ์",
+    //   isNew: false,
+    //   image:
+    //     "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop",
+    //   views: 567,
+    //   likes: 18,
+    // },
   ];
 
   // ข้อมูลจำลองสำหรับหนังสือราชการ
   const documentsData = {
     finance: [
-      {
-        id: 1,
-        title:
-          "เอกสารการจัดซื้อจัดจ้างโครงการพัฒนาสวนสาธารณะ ประจำปีงบประมาณ 2568",
-        date: "2025-04-23",
-        time: "16:08:22",
-        author: "กลุ่มงานการเงินและบัญชี",
-        docNumber: "ชม 0523.04/ว234",
-        fileType: "PDF",
-        fileSize: "2.5 MB",
-        priority: "high",
-      },
-      {
-        id: 2,
-        title:
-          "รายงานการเบิกจ่ายงบประมาณรายจ่ายประจำ ไตรมาสที่ 1 ปีงบประมาณ 2568",
-        date: "2025-04-20",
-        time: "09:15:45",
-        author: "กลุ่มงานการเงินและบัญชี",
-        docNumber: "ชม 0523.04/ว198",
-        fileType: "XLSX",
-        fileSize: "1.8 MB",
-        priority: "medium",
-      },
+      // {
+      //   id: 1,
+      //   title:
+      //     "เอกสารการจัดซื้อจัดจ้างโครงการพัฒนาสวนสาธารณะ ประจำปีงบประมาณ 2568",
+      //   date: "2025-04-23",
+      //   time: "16:08:22",
+      //   author: "กลุ่มงานการเงินและบัญชี",
+      //   docNumber: "ชม 0523.04/ว234",
+      //   fileType: "PDF",
+      //   fileSize: "2.5 MB",
+      //   priority: "high",
+      // },
+      // {
+      //   id: 2,
+      //   title:
+      //     "รายงานการเบิกจ่ายงบประมาณรายจ่ายประจำ ไตรมาสที่ 1 ปีงบประมาณ 2568",
+      //   date: "2025-04-20",
+      //   time: "09:15:45",
+      //   author: "กลุ่มงานการเงินและบัญชี",
+      //   docNumber: "ชม 0523.04/ว198",
+      //   fileType: "XLSX",
+      //   fileSize: "1.8 MB",
+      //   priority: "medium",
+      // },
     ],
     administration: [
-      {
-        id: 1,
-        title:
-          "ประกาศรายชื่อผู้ได้รับการคัดเลือกเข้าอบรมหลักสูตรการพัฒนาข้าราชการ",
-        date: "2025-04-03",
-        time: "09:59:40",
-        author: "อำเภอฝาง",
-        docNumber: "ฝง 0408.2/ว156",
-        fileType: "PDF",
-        fileSize: "890 KB",
-        priority: "medium",
-      },
-      {
-        id: 2,
-        title: "หนังสือรายงานผลการดำเนินงานโครงการส่งเสริมอาชีพชุมชน",
-        date: "2025-04-01",
-        time: "14:22:18",
-        author: "อำเภอแม่ริม",
-        docNumber: "มร 0408.2/ว089",
-        fileType: "DOCX",
-        fileSize: "1.2 MB",
-        priority: "low",
-      },
+      // {
+      //   id: 1,
+      //   title:
+      //     "ประกาศรายชื่อผู้ได้รับการคัดเลือกเข้าอบรมหลักสูตรการพัฒนาข้าราชการ",
+      //   date: "2025-04-03",
+      //   time: "09:59:40",
+      //   author: "อำเภอฝาง",
+      //   docNumber: "ฝง 0408.2/ว156",
+      //   fileType: "PDF",
+      //   fileSize: "890 KB",
+      //   priority: "medium",
+      // },
+      // {
+      //   id: 2,
+      //   title: "หนังสือรายงานผลการดำเนินงานโครงการส่งเสริมอาชีพชุมชน",
+      //   date: "2025-04-01",
+      //   time: "14:22:18",
+      //   author: "อำเภอแม่ริม",
+      //   docNumber: "มร 0408.2/ว089",
+      //   fileType: "DOCX",
+      //   fileSize: "1.2 MB",
+      //   priority: "low",
+      // },
     ],
     security: [
-      {
-        id: 1,
-        title: "แผนการรักษาความปลอดภัยงานเทศกาลสงกรานต์ 2568",
-        date: "2025-04-03",
-        time: "09:58:23",
-        author: "อำเภอฝาง",
-        docNumber: "ฝง 0408.3/ว134",
-        fileType: "PDF",
-        fileSize: "3.2 MB",
-        priority: "high",
-      },
-      {
-        id: 2,
-        title: "รายงานสถานการณ์ความปลอดภัยในเขตพื้นที่ จังหวัดเชียงใหม่",
-        date: "2025-03-28",
-        time: "16:45:12",
-        author: "กลุ่มงานความมั่นคง",
-        docNumber: "ชม 0408.3/ว067",
-        fileType: "PDF",
-        fileSize: "2.1 MB",
-        priority: "medium",
-      },
+      // {
+      //   id: 1,
+      //   title: "แผนการรักษาความปลอดภัยงานเทศกาลสงกรานต์ 2568",
+      //   date: "2025-04-03",
+      //   time: "09:58:23",
+      //   author: "อำเภอฝาง",
+      //   docNumber: "ฝง 0408.3/ว134",
+      //   fileType: "PDF",
+      //   fileSize: "3.2 MB",
+      //   priority: "high",
+      // },
+      // {
+      //   id: 2,
+      //   title: "รายงานสถานการณ์ความปลอดภัยในเขตพื้นที่ จังหวัดเชียงใหม่",
+      //   date: "2025-03-28",
+      //   time: "16:45:12",
+      //   author: "กลุ่มงานความมั่นคง",
+      //   docNumber: "ชม 0408.3/ว067",
+      //   fileType: "PDF",
+      //   fileSize: "2.1 MB",
+      //   priority: "medium",
+      // },
     ],
   };
 
   // ข้อมูลจำลองสำหรับกิจกรรม
   const activitiesData = [
-    {
-      id: 1,
-      title: "การประชุมคณะผู้บริหารจังหวัดเชียงใหม่ ประจำเดือนพฤษภาคม 2568",
-      date: "2025-05-25",
-      time: "09:00",
-      location: "ห้องประชุมใหญ่ ที่ทำการปกครองจังหวัดเชียงใหม่",
-      status: "กำลังดำเนินการ",
-      participants: 45,
-      image:
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop",
-      tags: ["ประชุม", "ผู้บริหาร"],
-    },
-    {
-      id: 2,
-      title: "โครงการอบรมพัฒนาศักยภาพเจ้าหน้าที่ปกครอง",
-      date: "2025-05-20",
-      time: "08:30",
-      location: "โรงแรมเชียงใหม่ แกรนด์ วิว",
-      status: "เสร็จสิ้น",
-      participants: 120,
-      image:
-        "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=400&h=250&fit=crop",
-      tags: ["อบรม", "พัฒนา"],
-    },
-    {
-      id: 3,
-      title: "การตรวจเยี่ยมหน่วยงานในสังกัด อำเภอแม่ริม",
-      date: "2025-05-15",
-      time: "10:00",
-      location: "อำเภอแม่ริม",
-      status: "เสร็จสิ้น",
-      participants: 15,
-      image:
-        "https://images.unsplash.com/photo-1450101215322-bf5cd27538ff?w=400&h=250&fit=crop",
-      tags: ["ตรวจเยี่ยม", "อำเภอ"],
-    },
+    // {
+    //   id: 1,
+    //   title: "การประชุมคณะผู้บริหารจังหวัดเชียงใหม่ ประจำเดือนพฤษภาคม 2568",
+    //   date: "2025-05-25",
+    //   time: "09:00",
+    //   location: "ห้องประชุมใหญ่ ที่ทำการปกครองจังหวัดเชียงใหม่",
+    //   status: "กำลังดำเนินการ",
+    //   participants: 45,
+    //   image:
+    //     "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=250&fit=crop",
+    //   tags: ["ประชุม", "ผู้บริหาร"],
+    // },
+    // {
+    //   id: 2,
+    //   title: "โครงการอบรมพัฒนาศักยภาพเจ้าหน้าที่ปกครอง",
+    //   date: "2025-05-20",
+    //   time: "08:30",
+    //   location: "โรงแรมเชียงใหม่ แกรนด์ วิว",
+    //   status: "เสร็จสิ้น",
+    //   participants: 120,
+    //   image:
+    //     "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=400&h=250&fit=crop",
+    //   tags: ["อบรม", "พัฒนา"],
+    // },
+    // {
+    //   id: 3,
+    //   title: "การตรวจเยี่ยมหน่วยงานในสังกัด อำเภอแม่ริม",
+    //   date: "2025-05-15",
+    //   time: "10:00",
+    //   location: "อำเภอแม่ริม",
+    //   status: "เสร็จสิ้น",
+    //   participants: 15,
+    //   image:
+    //     "https://images.unsplash.com/photo-1450101215322-bf5cd27538ff?w=400&h=250&fit=crop",
+    //   tags: ["ตรวจเยี่ยม", "อำเภอ"],
+    // },
   ];
 
   // ข้อมูลจำลองสำหรับเรื่องน่ารู้
   const knowledgeData = [
-    {
-      id: 1,
-      title: "ขั้นตอนการขอใบอนุญาตก่อสร้างอาคาร",
-      description:
-        "แนวทางและขั้นตอนการยื่นขอใบอนุญาตก่อสร้างอาคารที่ถูกต้องตามกฎหมาย พร้อมแบบฟอร์มและเอกสารที่ต้องใช้",
-      category: "การบริการ",
-      readTime: "5 นาที",
-      views: 1250,
-      image:
-        "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
-      rating: 4.8,
-      comments: 23,
-    },
-    {
-      id: 2,
-      title: "สิทธิและหน้าที่ของประชาชนในการมีส่วนร่วมกับท้องถิ่น",
-      description:
-        "ความรู้เกี่ยวกับสิทธิการมีส่วนร่วมในการพัฒนาท้องถิ่นของประชาชน รวมถึงกระบวนการการมีส่วนร่วม",
-      category: "สิทธิประชาชน",
-      readTime: "8 นาที",
-      views: 980,
-      image:
-        "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=200&fit=crop",
-      rating: 4.6,
-      comments: 18,
-    },
-    {
-      id: 3,
-      title: "การดำเนินการเมื่อเกิดภัยพิบัติธรรมชาติ",
-      description:
-        "แผนการรับมือและแนวทางการป้องกันความเสียหายจากภัยพิบัติ พร้อมคู่มือการปฏิบัติเบื้องต้น",
-      category: "ความปลอดภัย",
-      readTime: "6 นาที",
-      views: 756,
-      image:
-        "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=200&fit=crop",
-      rating: 4.9,
-      comments: 31,
-    },
+    // {
+    //   id: 1,
+    //   title: "ขั้นตอนการขอใบอนุญาตก่อสร้างอาคาร",
+    //   description:
+    //     "แนวทางและขั้นตอนการยื่นขอใบอนุญาตก่อสร้างอาคารที่ถูกต้องตามกฎหมาย พร้อมแบบฟอร์มและเอกสารที่ต้องใช้",
+    //   category: "การบริการ",
+    //   readTime: "5 นาที",
+    //   views: 1250,
+    //   image:
+    //     "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=200&fit=crop",
+    //   rating: 4.8,
+    //   comments: 23,
+    // },
+    // {
+    //   id: 2,
+    //   title: "สิทธิและหน้าที่ของประชาชนในการมีส่วนร่วมกับท้องถิ่น",
+    //   description:
+    //     "ความรู้เกี่ยวกับสิทธิการมีส่วนร่วมในการพัฒนาท้องถิ่นของประชาชน รวมถึงกระบวนการการมีส่วนร่วม",
+    //   category: "สิทธิประชาชน",
+    //   readTime: "8 นาที",
+    //   views: 980,
+    //   image:
+    //     "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=200&fit=crop",
+    //   rating: 4.6,
+    //   comments: 18,
+    // },
+    // {
+    //   id: 3,
+    //   title: "การดำเนินการเมื่อเกิดภัยพิบัติธรรมชาติ",
+    //   description:
+    //     "แผนการรับมือและแนวทางการป้องกันความเสียหายจากภัยพิบัติ พร้อมคู่มือการปฏิบัติเบื้องต้น",
+    //   category: "ความปลอดภัย",
+    //   readTime: "6 นาที",
+    //   views: 756,
+    //   image:
+    //     "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=200&fit=crop",
+    //   rating: 4.9,
+    //   comments: 31,
+    // },
   ];
 
   const getStatusColor = (status) => {
@@ -516,28 +516,30 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Left: Large card */}
             <div>
-              <Card
-                hoverable
-                className="h-full"
-                cover={
-                  <div
-                    className="h-96 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${newsData[0].image})` }}
-                  >
-                    {newsData[0].isNew && (
-                      <Badge count="ใหม่" className="news-badge" />
-                    )}
+              {newsData?.length > 0 && newsData[0] && (
+                <Card
+                  hoverable
+                  className="h-full"
+                  cover={
+                    <div
+                      className="h-96 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${newsData[0].image})` }}
+                    >
+                      {newsData[0].isNew && (
+                        <Badge count="ใหม่" className="news-badge" />
+                      )}
+                    </div>
+                  }
+                  bodyStyle={{ padding: "20px" }}
+                >
+                  <Text strong className="block mb-2">
+                    {newsData[0].title}
+                  </Text>
+                  <div className="text-xs text-gray-500">
+                    {newsData[0].date} | {newsData[0].author}
                   </div>
-                }
-                bodyStyle={{ padding: "20px" }}
-              >
-                <Text strong className="block mb-2">
-                  {newsData[0].title}
-                </Text>
-                <div className="text-xs text-gray-500">
-                  {newsData[0].date} | {newsData[0].author}
-                </div>
-              </Card>
+                </Card>
+              )}
             </div>
 
             {/* Right: Grid of 4 small cards */}
