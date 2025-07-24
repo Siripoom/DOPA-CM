@@ -34,6 +34,11 @@ import lead from "../../assets/executives/1.jpg";
 import landmark1 from "../../assets/landmark/1.png";
 import landmark2 from "../../assets/landmark/2.png";
 import landmark3 from "../../assets/landmark/3.png";
+
+import announce1 from "../../assets/annoucement/annoucement1.jpg";
+
+import anouuncefile1 from "../../assets/annoucement/file/register.pdf";
+
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
@@ -83,20 +88,20 @@ const Home = () => {
     },
   ];
   const newsData = [
-    // {
-    //   // id: 1,
-    //   // title:
-    //   //   "ประกาศผู้ผ่านการสอบข้าราชการปกครองประเภทพิเศษ ตำแหน่งปกครองอำเภอ สำนักงานปกครองจังหวัดเชียงใหม่ เรียงใหม่ที่ 1",
-    //   // date: "2025-05-20",
-    //   // time: "09:48:07",
-    //   // author: "กลุ่มงานการเจ้าหน้าที่",
-    //   // category: "ข่าวประชาสัมพันธ์",
-    //   // isNew: true,
-    //   // // image:
-    //   // //   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop&crop=face",
-    //   // views: 1250,
-    //   // likes: 45,
-    // },
+    {
+      id: 1,
+      title:
+        " รับสมัครบุคคลเพื่อเลือกสรรเป็นพนักงานราชการทั่วไป (ทดแทนอัตราว่าง)",
+      date: "2025-07-24",
+      time: "13:48:07",
+      author: "กลุ่มงานการเจ้าหน้าที่",
+      category: "ข่าวประชาสัมพันธ์",
+      isNew: true,
+      image: announce1,
+      views: 5,
+      likes: 4,
+      fileUrl: anouuncefile1,
+    },
     // {
     //   id: 2,
     //   title:
@@ -521,23 +526,58 @@ const Home = () => {
                   hoverable
                   className="h-full"
                   cover={
-                    <div
-                      className="h-96 bg-cover bg-center"
-                      style={{ backgroundImage: `url(${newsData[0].image})` }}
+                    // Wrap the image div with an <a> tag
+                    <a
+                      href={newsData[0].image}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      {newsData[0].isNew && (
-                        <Badge count="ใหม่" className="news-badge" />
-                      )}
-                    </div>
+                      <div
+                        className="h-96 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${newsData[0].image})` }}
+                        // Optional: You could add a title attribute for a tooltip on hover
+                        title="Click to view full image"
+                      >
+                        {newsData[0].isNew && (
+                          <Badge count="ใหม่" className="news-badge" />
+                        )}
+                      </div>
+                    </a>
+                    // Alternative using Ant Design's Image component for built-in preview (lightbox)
+                    /*
+            <Image
+              src={newsData[0].image}
+              alt={newsData[0].title} // Add alt text for accessibility
+              className="h-96 w-full object-cover" // Ensure image covers the area
+              preview={{
+                mask: <div className="ant-image-mask-info">View Full Image</div>,
+                // You can customize the preview functionality further if needed
+              }}
+            />
+            */
                   }
                   bodyStyle={{ padding: "20px" }}
                 >
                   <Text strong className="block mb-2">
                     {newsData[0].title}
                   </Text>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-gray-500 mb-4">
                     {newsData[0].date} | {newsData[0].author}
                   </div>
+
+                  {/* Conditional rendering for the download link */}
+                  {newsData[0].fileUrl && (
+                    <Button
+                      type="primary"
+                      icon={<DownloadOutlined />}
+                      href={newsData[0].fileUrl}
+                      target="_blank"
+                      download
+                      className="mt-4"
+                    >
+                      ดาวน์โหลดเอกสาร
+                    </Button>
+                  )}
                 </Card>
               )}
             </div>

@@ -102,7 +102,6 @@ const announcementsData = [
     comments: 29,
     tags: ["เทศกาล", "ดอกไม้", "ท่องเที่ยว", "เชียงใหม่"],
   },
-  // ... เพิ่มข้อมูลที่เหลือ
 ];
 
 const Announcements = () => {
